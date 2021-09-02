@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p> <div id="sorted">...</div>THIS IS PARAGRAPH</p>
+
+<h1 class="display-4 lh-1 mb-3">{{ name }}</h1>
+{{ data.to_html(classes="table paleBlueRows") | safe}}
+<!-- {{ data.to_html(classes="table") | safe}} -->
+<!-- {{ data | safe}} -->
+
+{% endblock %}

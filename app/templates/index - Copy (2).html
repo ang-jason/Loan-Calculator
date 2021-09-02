@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>{{title}}</title>
+        <script type="module">import * as library from './static/__target__/library.js'; window.library = library;</script>
+    </head>
+    <body>
+        <h1>Welcome to {{title}}</h1>
+        <p>
+        	This Mortgage App is to illustrate and aid comprehension of the true cost of a mortgage.
+        </p>
+        <p>
+            Loan Amount: <input type="text" id="loanAmount" value="440248">
+        </p>
+        <p>
+            Interest Rate(s) %: <input type="text" id="interestRate" value="2.6">
+        </p>
+        <p>
+            Terms Period (Year): <input type="text" id="termPeriod" value="30">
+        </p>
+        <p>
+            Loan Tenor (Years): <input type="text" id="loanTenor" value="30">
+        </p>
+        <p>
+            <div id="sorted">...</div>
+            <button onclick="library.grab_parameters()">Show Schedule</button>
+        </p>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <head>
+        <title>{{title}}</title>
+        <script type="module">import * as library from './static/__target__/library.js'; window.library = library;</script>
+    </head>
+	
+        <h2 class="display-4 mt-3 lh-5 mb-3">Welcome to {{title}}</h1>
+        <p>
+        	This Mortgage App is to illustrate and aid comprehension of the true cost of a mortgage.
+        </p>
+        <p>
+		<div class="mb-3">
+            <label class="form-label">Loan Amount ($)</label>
+			<div class="col-sm-7">
+			<input class="form-control" type="text" id="loanAmount" value="440248">
+			</div>
+		</div>
+        </p>
+        <p>
+		<div class="mb-3">
+            <label class="form-label">Interest Rate(s) %</label>
+			<div class="col-sm-7">
+			<input class="form-control" type="text" id="interestRate" value="2.6">
+			</div>
+			</div>
+        </p>
+        <p>
+		<div class="mb-3">
+            <label class="form-label">Terms Period (Year)</label>
+			<div class="col-sm-7">
+			<input class="form-control" type="text" id="termPeriod" value="30">
+			</div>
+			</div>
+        </p>
+        <p>
+		<div class="mb-3">
+            <label class="form-label">Loan Tenor (Years)</label>
+			<div class="col-sm-7">
+			<input class="form-control" type="text" id="loanTenor" value="30">
+			</div>
+			</div>
+        </p>
+        <p>		
+		<div class="mb-3">
+            <!-- <div id="sorted">...</div> -->
+            <button class="btn btn-outline-primary rounded-pill" onclick="library.grab_parameters()">Show Schedule</button>
+			</div>
+        </p>
+{% endblock %}

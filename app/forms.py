@@ -12,7 +12,7 @@ class LoginForm(FlaskForm):
     
 class InputParamForm(FlaskForm):
     loan_amount = FloatField('Loan Amount ($)', validators=[DataRequired()])
-    interest_rate = StringField('Interest Rate(s)', validators=[DataRequired(),Length(min=1)])
+    interest_rate = StringField('Interest Rate(s) %pa', validators=[DataRequired(),Length(min=1)])
     term_periods = StringField('Terms Period (Year)', validators=[])
     loan_tenor = IntegerField('Loan Tenor (Years)', validators=[DataRequired()])
 
@@ -24,7 +24,7 @@ class InputParamForm(FlaskForm):
             # if char in excluded_chars:
                 # raise ValidationError(
                     # f"Character {char} is not allowed in loan_amount.")
-                    
+       
     def validate_term_periods(self, term_periods):
         # print("validate_length_term_period",len(self.term_periods.data),len(self.interest_rate.data))
         if "," in self.term_periods.data or "," in self.interest_rate.data:
@@ -44,3 +44,5 @@ class InputParamForm(FlaskForm):
             print(term_periods_size,interest_rate_size)
             if term_periods_size != interest_rate_size:
                 raise ValidationError(f"Input of Interest Rate and Term Period not allowed.")
+                
+

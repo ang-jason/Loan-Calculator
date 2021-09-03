@@ -1,7 +1,12 @@
 class TotalPeriod:
-    '''This is TotalPeriod Class that take in tenor and convert to the total number of payments
-       Loan mortgage market convention will be monthly payments. Typical tenor will be 30 * (12 month) = 360 number of payments
+    '''
     
+    This is TotalPeriod Class that take in tenor and convert to the total number of payments
+    
+    Loan mortgage market convention will be monthly payments. Typical tenor will be 30 * (12 month) = 360 number of payments
+        
+    This is a foundation class to compute the total length of loan.
+        
     '''
     def __init__(self, given_tenor):
         self.given_tenor = given_tenor

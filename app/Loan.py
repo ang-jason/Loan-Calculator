@@ -1,12 +1,18 @@
 # Class definition
 class Loan:
-    '''This is base Loan Class that take in loan amount (principal), interest rate (annual), tenor (years) which is the duration of whole loan'''
+    '''
+    This is beginner Loan Class that take in loan amount (principal), single interest rate (annual), tenor (years) which is the duration of whole loan
+    
+    Description of the components in a Loan
+    
+    A Basic getter and setter functions to parameters and the expected data types 
+    '''
     # Attributes:
     def __init__(self, loan_amount, interest_rate_annual, tenor):
-        self._loan_amount = loan_amount
-        self._interest_rate = interest_rate_annual
-        self._tenor = tenor
-
+        self.loan_amount = loan_amount
+        self.interest_rate = interest_rate_annual
+        self.tenor = tenor
+        
     # property getter
     @property
     def loan_amount(self):
@@ -15,7 +21,7 @@ class Loan:
     # property setter
     @loan_amount.setter
     def loan_amount(self, value):
-        if isinstance(value, float) and value != "":
+        if isinstance(value, float) or isinstance(value, int) and value != "":
             self._loan_amount = value
             
     # property getter

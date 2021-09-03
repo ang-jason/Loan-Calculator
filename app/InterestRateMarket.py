@@ -1,7 +1,11 @@
 class InterestRateMarket:
-    '''This is InterestRateMarket Class that take in interest rate (annual), year_length (optional) and month_length(optional)
-       which convert the interest rate to monthly interest rate market convention year_length (12 months)
-       or custom conventions which you can specify year_length (365,360) and month_length (30)
+    '''
+    
+    This is InterestRateMarket Class that take in interest rate (annual), year_length (optional) and month_length(optional)
+    which convert the interest rate to monthly interest rate market convention year_length (12 months)
+    or custom conventions which you can specify year_length (365,360) and month_length (30)
+    
+    This is a very refine class configuration which caters to different market conventions if there is any. However of what I known have been written to default mode of (12 months)
     
     '''
     def __init__(self, given_annual_rate, year_length=12, month_length=0):

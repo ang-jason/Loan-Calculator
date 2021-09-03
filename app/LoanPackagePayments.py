@@ -11,6 +11,31 @@ from app.TotalPeriod import TotalPeriod
 
 
 class LoanPackagePayments(LoanPackage):
+    '''
+    Expanding for the LoanPackage Class which allows only single interest rate
+    
+    This class allow list of interest rates and term period as described detailedly in InterestRateMultiple class
+    
+    The basic principle is of working out the payment schedule/ amorization table is first computed the monthly installments (using monthly rates derived from pa interest rate, loan length in months and final value theory)
+    
+    Further description were illustrated in LoanSchedule class.
+    
+    As the input parameters of interest rate and their associated term period were provided in a list format. 
+    
+    This class is the building blocks of coming out the different components of the payment schedule, with the difference of monthly payment(mortgage installments) recomputed after the associated term period for the remaining duration of the loan.
+    
+    Means: if using 1.39%pa were used for the 1 year. At initial, installments were computed based on 1.39%pa monthly rate and for the entire loan tenor and the loan balance. This computed installments will be paid for 1 year (12 payments). 
+    
+    At the 13th payment (2nd year start mark), using the new interest rate from the list, the new installment figure will be recomputed for the remaining duration of the loan tenor (360-12) and the loan balance.
+    
+    If there is subsequent  rate, the installment will be recomputed again with the new loan balance and loan length.
+    
+    The above example could be changed based on the list provided such as using the same rate to pay for 1-2 years then change payment rate for following and so on.
+
+    the concepts provided the different building components for the loan schedule catering to list interest rate and term periods.
+
+    '''
+
     def __init__(self,loan_amount,tenor,n_ir,n_term_end=[0]):
       super().__init__(tenor,n_ir,n_term_end)
       # self.loanpackage = LoanPackage(tenor,n_ir,n_term_end)

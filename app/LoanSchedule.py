@@ -10,7 +10,36 @@ import numpy as np
 import pandas as pd
 # Class definition
 class LoanSchedule(Loan):
-    '''This is LoanSchedule Class that take compute the payment schedule and show the amorization table using the other needed parameters'''
+    '''
+    This is LoanSchedule Class that take compute the payment schedule and show the amorization table using the other needed parameters
+
+    Expanding for the default Loan Class to compute and present the payment schedule
+    
+    The basic principle is of working out the payment schedule/ amorization table is first computed the monthly installments (using monthly rates derived from pa interest rate, loan length in months and final value theory)
+    
+    Monthly installments conprises of Principal (P) + Interest (I). (constant for the period you have computed)
+    
+    Interest portion is computed based on the monthly interest rate on the balance of the loan (starting balance of loan in each period) each payment period (ie 1 of 360 period).
+    
+    With the interest, taking monthly installment less interest will be the principal. Using this principal, this will reduce your loan balance. (equate to Ending Balance)
+
+    The next payment period, a new interest portion will be computed using the new balance (ie starting balance) from the pervious ending balance.
+    
+    Then, principal will be reduce by lessing interest portion from the installments. Following reduce the balance with the new principal final with ending balance.
+    
+    The whole cycle completes until the end of the loan period (loan tenor, after 360 payments)
+
+    show_schedule() will present as compute_schedule() will compute the above with helper functions like monthly payments, principal_function, interest_function.
+    
+    items were built in an array form, representing column and reduce row by row to form the table using the above concept.
+    
+    show_schedule will return a pandas dataframe and using the internal variables provided from the intial loan_amount, interest_rate_annual, tenor
+    This class also makes class instances of InterestRateMarket and TotalPeriod
+    Using of pandas dataframe allows one to manipulate the schedule data easily for further analysis.
+    
+    **avenue for expansion was inbuilt partially to cater top up to the loan- which later reduced in priority over other features. 
+
+    '''
     # Attributes:
     def __init__(self,loan_amount, interest_rate_annual, tenor, topup_amount=0,format=0):
         super().__init__(loan_amount, interest_rate_annual, tenor)

@@ -17,6 +17,25 @@ from app.TotalPeriod import TotalPeriod
 
 # Class definition
 class LoanScheduleMultiple(LoanPackagePayments,LoanSchedule):
+    '''
+    Extedning from the LoanPackagePayments Class and making use for the certain function in LoanSchedule Class.
+    
+    This class allow list of interest rates and term period as described detailedly in InterestRateMultiple class
+    Further description were illustrated in LoanSchedule class.
+    As the input parameters of interest rate and their associated term period were provided in a list format. 
+    
+    This class further worked on the LoanPackagePayments class to finally compute the loan schedule table using various components classes that was created earlier.
+    
+    the instantiation of helper classes for some computation - a design choice from the getgo so as to quickly access derived figures for further computation instead of digging into the nested classes and unroll and parent up again. (e.g InterestRateMultiple,TotalPeriod)
+    
+    Functions overwrite were done for compute_schedule() in this class of different sets of interests rates, payments, term periods and durations.
+    
+    Lastly, as the presentation component were built in LoanSchedule class, this function componet were called to use to prevent rewriting. mechanics of the show_schedule() is illustrated in the LoanSchedule class.
+    
+    '''
+
+
+
     def __init__(self,loan_amount, interest_rate_annual_list, tenor_list,tenor):
     
     # https://stackoverflow.com/questions/576169/understanding-python-super-with-init-methods

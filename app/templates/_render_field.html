@@ -1,0 +1,41 @@
+<!-- {% macro render_field(field) %} -->
+  <!-- <dt>{{ field.label }} -->
+  <!-- <dd>{{ field(**kwargs)|safe }} -->
+  <!-- {% if field.errors %} -->
+    <!-- <ul class=errors> -->
+    <!-- {% for error in field.errors %} -->
+      <!-- <li>{{ error }}</li> -->
+    <!-- {% endfor %} -->
+    <!-- </ul> -->
+  <!-- {% endif %} -->
+  <!-- </dd> -->
+<!-- {% endmacro %} -->
+
+
+<!-- {% macro render_field(field) %} -->
+  <!-- <label for="{{ field.name }}" class="col-sm-7 form-label"><dt>{{ field.label }} -->
+  <!-- <dd>{{ field(**kwargs)|safe }}</div> -->
+  <!-- {% if field.errors %} -->
+    <!-- <ul class=errors> -->
+    <!-- {% for error in field.errors %} -->
+      <!-- <li>{{ error }}</li> -->
+    <!-- {% endfor %} -->
+    <!-- </ul> -->
+  <!-- {% endif %} -->
+  <!-- </dd> -->
+<!-- {% endmacro %} -->
+
+
+{% macro render_field(field) %}
+<div class="form-group">
+    <label for="{{ field.name }}" class="form-label font-weight-bold">{{ field.label.text }}</label>
+    <div class="col-lg-10">
+        {{ field(class_='form-control', **kwargs)|safe }}
+        <ul>
+        {% for error in field.errors %}
+            <li style="color:red;">{{ error }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endmacro %}

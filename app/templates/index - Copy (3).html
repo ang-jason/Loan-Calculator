@@ -16,51 +16,42 @@
         <p>
         	This Mortgage App is to illustrate and aid comprehension of the true cost of a mortgage.
         </p>
-    <form action="" method="post" >
-        {{ form.hidden_tag() }}
         <p>
 		<div class="mb-3">
-            <!-- <label class="form-label">Loan Amount ($)</label> -->
+            <label class="form-label">Loan Amount ($)</label>
 			<div class="col-sm-7">
-			<!-- <input class="form-control" type="text" id="loanAmount" value="440248"> -->
-			{{ render_field(form.loan_amount, placeholder='440248') }}
+			<input class="form-control" type="text" id="loanAmount" value="440248">
 			</div>
 		</div>
         </p>
         <p>
 		<div class="mb-3">
-            <!-- <label class="form-label">Interest Rate(s) %</label> -->
+            <label class="form-label">Interest Rate(s) %</label>
 			<div class="col-sm-7">
-			<!-- <input class="form-control" type="text" id="interestRate" value="2.6"> -->
-			{{ render_field(form.interest_rate, placeholder='2.6 or 1.39,1.48') }}
+			<input class="form-control" type="text" id="interestRate" value="2.6">
 			</div>
 			</div>
         </p>
         <p>
 		<div class="mb-3">
-            <!-- <label class="form-label">Terms Period (Year)</label> -->
+            <label class="form-label">Terms Period (Year)</label>
 			<div class="col-sm-7">
-			<!-- <input class="form-control" type="text" id="termPeriod" value="30"> -->
-			{{ render_field(form.term_periods, placeholder="") }}
+			<input class="form-control" type="text" id="termPeriod" value="30">
 			</div>
 			</div>
         </p>
         <p>
 		<div class="mb-3">
-            <!-- <label class="form-label">Loan Tenor (Years)</label> -->
+            <label class="form-label">Loan Tenor (Years)</label>
 			<div class="col-sm-7">
-			<!-- <input class="form-control" type="text" id="loanTenor" value="30"> -->
-			{{ render_field(form.loan_tenor, placeholder='30') }}
+			<input class="form-control" type="text" id="loanTenor" value="30">
 			</div>
 			</div>
         </p>
         <p>		
 		<div class="mb-3">
             <!-- <div id="sorted">...</div> -->
-			<div class="col-sm-7">
-            <button class="btn btn-outline-primary rounded-pill" onclick="form.submit()">Show Schedule</button>
+            <button class="btn btn-outline-primary rounded-pill" onclick="library.grab_parameters()">Show Schedule</button>
 			</div>
-		</div>
         </p>
-	</form>
 {% endblock %}

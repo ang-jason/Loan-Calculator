@@ -1,0 +1,30 @@
+# # Testing Case 1
+<class 'float'> <class 'int'>
+setter annual rate
+DEBUG 3 <class 'int'>
+setter monthly rate
+getter
+getter
+monthly==============
+0.0011583333333333333
+
+# # Testing with String - TEST 1
+setter annual rate
+<class 'str'>
+DEBUG 1,5,6 <class 'str'>
+DEBUG in string term period
+<class 'str'>
+int_list [1, 5, 6] <class 'list'>
+int_list stage2
+setter monthly rate
+<class 'str'>
+getter
+getter
+testA.given_annual_rate_list [0.0139, 0.0148, 0.023] <class 'list'>
+getter
+getter
+testA.given_term_period_list [1, 5, 6] <class 'list'>
+--------------------------------------------------
+Given Rate (Annual): [0.0139, 0.0148, 0.023]; Given Term (Years): [1, 5, 6]; Monthly rates [0.0011583333333333333, 0.0012333333333333335, 0.0019166666666666666]
+monthly==============
+[0.0011583333333333333, 0.0012333333333333335, 0.0019166666666666666]

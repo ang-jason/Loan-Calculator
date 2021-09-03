@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+  
+{% from "_render_field.html" import render_field %}
+<!-- https://john.soban.ski/pass-bootstrap-html-attributes-to-flask-wtforms.html -->
+<!-- https://github.com/PrettyPrinted/youtube_video_code/blob/master/2017/05/05/Flask-WTF%20-%20Converting%20a%20Bootstrap%20Template%20(5%20of%205)/flaskwtf_example/templates/form.html -->
+
+
+{% block content %}
+    <h1>Sign In</h1>
+    <form action="" method="post" >
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.loan_amount.label }}</br>
+            {{ form.loan_amount(size=32) }}
+			{{ render_field(form.loan_amount, class='form-control', placeholder='Write down your thoughts here...') }}
+        </p>
+        <p>
+            {{ form.interest_rate.label }}</br>
+			<!-- <input class="form-control" type="text" name="form.interest_rate" value="2.6"> -->
+            {{ form.interest_rate(size=32) }}
+        </p>
+        <p>
+            {{ form.term_periods.label }}</br>
+            {{ form.term_periods(size=32) }}
+        </p>
+        <p>
+            {{ form.loan_tenor.label }}</br>
+            {{ form.loan_tenor(size=32) }}
+        </p>
+		<button class="btn btn-outline-primary rounded-pill" onclick="form.submit()">Show Schedule</button>
+    </form>
+{% endblock %}

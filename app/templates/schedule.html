@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p> <div id="sorted">...</div>THIS IS PARAGRAPH</p>
+<p><div data-toggle="tooltip" data-placement="right" title="If it is single interest rate, Terms info is arbitrary">{{ desc }}</div></p>
 
 <h1 class="display-4 lh-1 mb-3">{{ name }}</h1>
+
+
+<div class="mb-3">
+	<div class="col-sm-7">
+	<button class="btn btn-outline-primary rounded-pill " onclick="location.href='/index'">Back</button>
+	</div>
+</div>
+
+
+<!-- {% for table in tables %} -->
+            <!-- {{titles[loop.index]}} -->
+            <!-- {{ table|safe }} -->
+<!-- {% endfor %} -->
 {{ data.to_html(classes="table paleBlueRows") | safe}}
-<!-- {{ data.to_html(classes="table") | safe}} -->
-<!-- {{ data | safe}} -->
 
 {% endblock %}

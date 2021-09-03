@@ -1,13 +1,54 @@
-from flask import render_template
+from flask import Flask, render_template, flash, redirect,request, url_for,session
 from app import application
 
+from app.forms import InputParamForm
+from werkzeug.exceptions import HTTPException
 
 
 
-@application.route('/')
-@application.route('/index')
+
+from app.LoanScheduleMultiple import LoanScheduleMultiple
+from app.LoanSchedule import LoanSchedule
+
+
+# from app.static.library import grab_parameters
+
+
+import numpy as np
+import pandas as pd
+
+
+
+@application.route('/', methods=['GET', 'POST'])
+@application.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', title='Mortgage Calculator')
+    print("index")
+    form = InputParamForm()
+    # if form.validate_on_submit():
+    if request.method == 'POST' and form.validate():
+        flash('Input requested for user {}, {},{}'.format(
+            form.loan_amount.data, form.interest_rate.data, form.loan_tenor.data))
+        print(form.loan_amount.data, form.interest_rate.data, form.term_periods.data, form.loan_tenor.data)
+        print(type(form.loan_amount.data), type(form.interest_rate.data), type(form.term_periods.data), type(form.loan_tenor.data))
+        session['T_LOANAMOUNT'] = form.loan_amount.data
+        session['T_RATE'] = form.interest_rate.data
+        session['T_TERM'] = form.term_periods.data
+        session['T_TENOR'] = form.loan_tenor.data
+        # print(session,type(session))
+        return redirect(url_for('schedule'))
+        # return redirect('/schedule')
+        # redirect(url_for('schedule', T_LOANAMOUNT=request.form['loan_amount'],
+                            # T_RATE=request.form['interest_rate'],
+                            # T_TERM=request.form['term_periods'],
+                            # T_TENOR=request.form['loan_tenor']))
+        
+        
+    return render_template('index.html', title='Mortgage Calculator', form=form)
+
+    # return render_template('index.html', title='Mortgage Calculator')
+    
+    
+    
 
 @application.route('/generate')
 def generate():
@@ -17,19 +58,73 @@ def generate():
 def about():
     return render_template('about.html', title='About')
 
-@application.route('/schedule/')
+
+
+
+# @application.route('/test', methods=['GET', 'POST'])
+# def test():
+    # form = InputParamForm()
+    # if form.validate_on_submit():
+        # flash('Input requested for user {}, {},{}'.format(
+            # form.loan_amount.data, form.interest_rate.data, form.loan_tenor.data))
+        # print(form.loan_amount.data, form.interest_rate.data, form.term_periods.data, form.loan_tenor.data)
+        
+        # return redirect('/test')
+    # return render_template('/test_form.html', title='Sign In', form=form)
+
+
+@application.route('/schedule', methods=['GET', 'POST'])
 def schedule():
+    print("in schedule")
 
-    import pandas as pd
-    import random
-    import numpy as np
-    x = pd.DataFrame(np.random.randn(20, 5))
+    # For Testing
+    # T_LOANAMOUNT=440248
+    # T_RATE=[1.39,1.48,2.3]
+    # T_TERM=[1,5,6]
+    # T_TENOR=30
+    # s1 = LoanSchedule(T_LOANAMOUNT,T_RATE,T_TENOR)
+    # print(help(LoanSchedule))
+
+    T_LOANAMOUNT = session.get('T_LOANAMOUNT', None)
+    T_RATE = session.get('T_RATE', None)
+    T_TERM = session.get('T_TERM', None)
+    T_TENOR = session.get('T_TENOR', None)
+
+    # T_LOANAMOUNT=440248
+    # T_RATE="1.39,1.48"
+    # T_TERM="1,2"
+    # T_TENOR=30
+    print(type(T_LOANAMOUNT),type(T_RATE),type(T_TERM),type(T_TENOR))
+    
+    if "," in T_RATE or "," in T_TERM:
+
+        lsm= LoanScheduleMultiple(T_LOANAMOUNT,T_RATE,T_TERM,T_TENOR)
+        # # print(help(LoanScheduleMultiple))
+
+    else:
+        lsm= LoanSchedule(float(T_LOANAMOUNT),float(T_RATE),int(T_TENOR))
+        # # print(help(LoanScheduleMultiple))
+
+    x = lsm.show_schedule()
+    # print("len",len(df),type(df))
+    pd.options.display.float_format = '{:,.2f}'.format
+    df_text="Your Loan Schedule" 
+    df_desc="Loan Amount: "+ str(T_LOANAMOUNT)+ " Interest Rate(s): "+str(T_RATE)+ (" Terms: "+str(T_TERM) if T_TERM else "")+" Loan Tenor: "+str(T_TENOR)
+    
+    
     x = x.round(2)
+    print(x,type(x))  
     
-    return render_template("schedule.html",name="TESTING TABLE" ,data=x)
-    # return render_template("schedule.html",name="TESTING TABLE" ,data="write_html.html")
+    
+    return render_template("schedule.html",name=df_text,desc=df_desc ,data=x)
 
-# @application.route('/ex2')
-# def exercise2():
-    # return render_template('ex2.html', title='Mini Project 1 Exercise 2')
+    # return render_template('about.html', title='Mortgage Calculator') 
     
+@application.errorhandler(404) 
+def invalid_route(e): 
+    return redirect('/')
+
+
+@application.errorhandler(HTTPException)
+def handle_exception(e): 
+    return redirect('/')

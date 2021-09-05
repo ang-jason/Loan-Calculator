@@ -7,8 +7,10 @@ from werkzeug.exceptions import HTTPException
 
 
 
-from app.LoanScheduleMultiple import LoanScheduleMultiple
-from app.LoanSchedule import LoanSchedule
+from app.loan_schedule_multiple import LoanScheduleMultiple
+from app.loan_schedule import LoanSchedule
+
+from app.analyse_schedule import AnalyseSchedule
 
 
 # from app.static.library import grab_parameters
@@ -22,7 +24,7 @@ import pandas as pd
 @application.route('/', methods=['GET', 'POST'])
 @application.route('/index', methods=['GET', 'POST'])
 def index():
-    print("index")
+    print("Generating index")
     form = InputParamForm()
     # if form.validate_on_submit():
     if request.method == 'POST' and form.validate():
@@ -30,6 +32,9 @@ def index():
             form.loan_amount.data, form.interest_rate.data, form.loan_tenor.data))
         print(form.loan_amount.data, form.interest_rate.data, form.term_periods.data, form.loan_tenor.data)
         print(type(form.loan_amount.data), type(form.interest_rate.data), type(form.term_periods.data), type(form.loan_tenor.data))
+        
+        # this statments store the values into the session using flask transparent to user
+        
         session['T_LOANAMOUNT'] = form.loan_amount.data
         session['T_RATE'] = form.interest_rate.data
         session['T_TERM'] = form.term_periods.data
@@ -52,7 +57,7 @@ def index():
 
 @application.route('/generate')
 def generate():
-    return render_template('write_html.html', title='Loan Schedule')
+    return render_template('generate.html', title='Loan Schedule')
 
 @application.route('/about')
 def about():
@@ -84,7 +89,10 @@ def schedule():
     # T_TENOR=30
     # s1 = LoanSchedule(T_LOANAMOUNT,T_RATE,T_TENOR)
     # print(help(LoanSchedule))
-
+    
+    
+    
+    # this statments retrieve the values from the session using flask transparent to user
     T_LOANAMOUNT = session.get('T_LOANAMOUNT', None)
     T_RATE = session.get('T_RATE', None)
     T_TERM = session.get('T_TERM', None)
@@ -105,6 +113,7 @@ def schedule():
         lsm= LoanSchedule(float(T_LOANAMOUNT),float(T_RATE),int(T_TENOR))
         # # print(help(LoanScheduleMultiple))
 
+    # loan schedule in df
     x = lsm.show_schedule()
     # print("len",len(df),type(df))
     pd.options.display.float_format = '{:,.2f}'.format
@@ -113,13 +122,30 @@ def schedule():
     
     
     x = x.round(2)
-    print(x,type(x))  
+    # print(x,type(x))  
+    
+    # put loan schedule x into AnalyseSchedule class for further summary generation
+    summary=AnalyseSchedule(x)
+    summary_dict=summary.loan_tabletop_brief()
+    
+    # AnalyseSchedule provide graphical analytics using chartjs by pulling each data sets
+    yearly_labels,data_col_names,data_sbalance,data_payment,data_principal,data_interest=summary.show_yearly_brief()
     
     
-    return render_template("schedule.html",name=df_text,desc=df_desc ,data=x)
+    return render_template("schedule2.html",data=x,name=df_text,desc=df_desc,summary=summary_dict,
+                                yearly_labels=yearly_labels,
+                                data_col_names=data_col_names,
+                                data_sbalance=data_sbalance,
+                                data_payment=data_payment,
+                                data_principal=data_principal,
+                                data_interest=data_interest
+                                )
 
     # return render_template('about.html', title='Mortgage Calculator') 
-    
+
+
+
+
 @application.errorhandler(404) 
 def invalid_route(e): 
     return redirect('/')

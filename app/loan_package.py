@@ -1,9 +1,9 @@
 
-# from TotalPeriod import TotalPeriod
-# from InterestRateMultiple import InterestRateMultiple
+# from total_period import TotalPeriod
+# from tnterest_rate_multiple import InterestRateMultiple
 
-from app.TotalPeriod import TotalPeriod
-from app.InterestRateMultiple import InterestRateMultiple
+from app.total_period import TotalPeriod
+from app.interest_rate_multiple import InterestRateMultiple
 
 class LoanPackage():
     '''
@@ -84,12 +84,12 @@ class LoanPackage():
 
     def generate_ix_table(self,n_table):
             
-        print("n_table",n_table,type(n_table))    
-        print("self.n_term_end",self.n_term_end,type(self.n_term_end))
+        # print("n_table",n_table,type(n_table))    
+        # print("self.n_term_end",self.n_term_end,type(self.n_term_end))
         if isinstance(self.n_term_end, float):
             self.n_term_end=[0]
             # self.n_term_end.append(int(0))
-            print("self.n_term_end",self.n_term_end,type(self.n_term_end))
+            # print("self.n_term_end",self.n_term_end,type(self.n_term_end))
 
         ir_table=[]
         for each in range(0,len(n_table)):

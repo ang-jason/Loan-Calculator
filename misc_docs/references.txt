@@ -1,3 +1,9 @@
 https://github.com/abulka/pynsource
 
 https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms
+
+
+https://stackoverflow.com/questions/14652325/python-dictionary-in-to-html-table/14656262
+
+
+https://stackoverflow.com/questions/7975365/how-can-i-make-this-loop-with-jinja2

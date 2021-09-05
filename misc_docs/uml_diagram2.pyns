@@ -1,0 +1,14 @@
+# PynSource Version 1.2
+{'type':'meta', 'info1':'Lorem ipsum dolor sit amet, consectetur adipiscing elit is latin. Comments are saved.'}
+{'type':'umlshape', 'id':'AnalyseSchedule', 'x':244, 'y':14, 'width':178, 'height':234, 'attrs': '_df|df', 'meths': '__init__|__str__|interest_to_principal|loan_tabletop_brief|payment_to_loan|show_payments_brief|show_schedule_row|show_yearly_brief|total_ppi'}
+{'type':'umlshape', 'id':'LoanSchedule', 'x':235, 'y':268, 'width':202, 'height':346, 'attrs': '_monthly_ir|_topup_amount|_total_period|monthly_rate|to_html|topup_amount|total_period', 'meths': '__init__|__str__|compute_schedule|installments_array|interest_function|monthly_payment_computed|monthly_payments|outstanding_amount|period_factor|principal_function|show_schedule'}
+{'type':'umlshape', 'id':'Loan', 'x':119, 'y':426, 'width':50, 'height':28, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'LoanScheduleMultiple', 'x':508, 'y':371, 'width':210, 'height':138, 'attrs': '_ir_obj|_total_period', 'meths': '__init__|compute_schedule|interst_function'}
+{'type':'umlshape', 'id':'LoanPackagePayments', 'x':513, 'y':198, 'width':200, 'height':28, 'attrs': '', 'meths': ''}
+{'type':'umlshape', 'id':'InterestRateMultiple', 'x':509, 'y':604, 'width':210, 'height':28, 'attrs': '', 'meths': ''}
+{'type':'edge', 'id':'LoanSchedule_to_Loan', 'source':'LoanSchedule', 'target':'Loan', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'LoanScheduleMultiple_to_LoanPackagePayments', 'source':'LoanScheduleMultiple', 'target':'LoanPackagePayments', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'LoanScheduleMultiple_to_LoanSchedule', 'source':'LoanScheduleMultiple', 'target':'LoanSchedule', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'InterestRateMultiple_to_LoanScheduleMultiple', 'source':'InterestRateMultiple', 'target':'LoanScheduleMultiple', 'uml_edge_type': 'composition'}
+{'type':'edge', 'id':'LoanSchedule_to_AnalyseSchedule', 'source':'LoanSchedule', 'target':'AnalyseSchedule', 'uml_edge_type': 'association'}
+{'type':'edge', 'id':'LoanScheduleMultiple_to_AnalyseSchedule', 'source':'LoanScheduleMultiple', 'target':'AnalyseSchedule', 'uml_edge_type': 'association'}

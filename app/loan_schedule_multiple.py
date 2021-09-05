@@ -1,18 +1,17 @@
-# from LoanSchedule import LoanSchedule
+# from loan_schedule import LoanSchedule
 
-# from LoanPackagePayments import LoanPackagePayments
+# from loan_package_payments import LoanPackagePayments
 
-# from InterestRateMultiple import InterestRateMultiple
-# from TotalPeriod import TotalPeriod
-
-from app.LoanSchedule import LoanSchedule
-
-from app.LoanPackagePayments import LoanPackagePayments
-
-from app.InterestRateMultiple import InterestRateMultiple
-from app.TotalPeriod import TotalPeriod
+# from interest_rate_multiple import InterestRateMultiple
+# from total_period import TotalPeriod
 
 
+from app.loan_schedule import LoanSchedule
+
+from app.loan_package_payments import LoanPackagePayments
+
+from app.interest_rate_multiple import InterestRateMultiple
+from app.total_period import TotalPeriod
 
 
 # Class definition
@@ -67,10 +66,10 @@ class LoanScheduleMultiple(LoanPackagePayments,LoanSchedule):
 
 
     def compute_schedule(self):
-        print("(DEBUG) using new Mutiple Schedule")
+        print("(DEBUG) computing with new Mutiple Schedule")
         nth = range(0, self._total_period)
         # nth=range(0,5)
-        print(nth,len(nth))
+        # print(nth,len(nth))
         result_b_start=[]
         result_b_end=[]
         resultp=[]

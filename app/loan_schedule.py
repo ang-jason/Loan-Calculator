@@ -1,10 +1,11 @@
-from app.Loan import Loan
-from app.InterestRateMarket import InterestRateMarket
-from app.TotalPeriod import TotalPeriod
-# from Loan import Loan
-# from InterestRateMarket import InterestRateMarket
-# from TotalPeriod import TotalPeriod
+from app.loan import Loan
+from app.interest_rate_market import InterestRateMarket
+from app.total_period import TotalPeriod
 
+
+# from loan import Loan
+# from interest_rate_market import InterestRateMarket
+# from total_period import TotalPeriod
 
 import numpy as np
 import pandas as pd
@@ -89,7 +90,7 @@ class LoanSchedule(Loan):
     def installments_array(self):
         # print(self.monthly_payment())
         monthly_install_arr = [self.monthly_payment_computed()] * self._total_period
-        print(monthly_install_arr,type(monthly_install_arr))
+        # print(monthly_install_arr,type(monthly_install_arr))
         return monthly_install_arr
 
     # this function returns monthly installments computed based on the loan + TOP UPS!
@@ -121,15 +122,16 @@ class LoanSchedule(Loan):
 
 
     def compute_schedule(self):
+        print("(DEBUG) computing single Schedule")
         nth = range(0, self._total_period)
         # nth=range(0,5)
-        print(nth,len(nth))
+        # print(nth,len(nth))
         result_b_start=[]
         result_b_end=[]
         resultp=[]
         resulti=[]
         payments=self.monthly_payments()
-        print("len(payments)",len(payments))
+        # print("len(payments)",len(payments))
         for each in nth:
             # print(self.interest_function(payments[each]))
             # print(each,self.loan_amount)
@@ -173,14 +175,14 @@ class LoanSchedule(Loan):
         df=df.round(4)
 
         ## data frame labels
-        df.columns = ['StartBalance','Payments', 'Principal', 'Interest', 'EndBalance']
+        df.columns = ['StartBalance','Payment', 'Principal', 'Interest', 'EndBalance']
         df.index += 1 
         # with pd.option_context('display.max_colwidth', None):
           ## display(df)
           # print(df.head(13))
           # print(df.tail(13))
         print("printed to html")
-        df.to_html
+        df.to_html('./app/templates/generate.html')
         return df
 
 

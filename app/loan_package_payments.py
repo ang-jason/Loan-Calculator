@@ -1,12 +1,12 @@
 
 
-from app.LoanPackage import LoanPackage
-from app.InterestRateMultiple import InterestRateMultiple
-from app.TotalPeriod import TotalPeriod
+from app.loan_package import LoanPackage
+from app.interest_rate_multiple import InterestRateMultiple
+from app.total_period import TotalPeriod
 
-# from LoanPackage import LoanPackage
-# from InterestRateMultiple import InterestRateMultiple
-# from TotalPeriod import TotalPeriod
+# from loan_package import LoanPackage
+# from interest_rate_multiple import InterestRateMultiple
+# from total_period import TotalPeriod
 
 
 
@@ -52,7 +52,7 @@ class LoanPackagePayments(LoanPackage):
     # property setter
     @loan_amount.setter
     def loan_amount(self,value):
-        print("loan amount setter")
+        # print("loan amount setter")
         # if (isinstance(value, int) or isinstance(value, list))  and value != "":
         if value != "":
             self._loan_amount = float(value)
@@ -75,7 +75,7 @@ class LoanPackagePayments(LoanPackage):
         # Outstanding Loan Balance
         paid_period_factor = (1+ rate)**int(period_paid)
         outstanding_amount = (balance_amount * (self.period_factor(rate,term_period) - paid_period_factor)) / ( self.period_factor(rate,term_period) -1 )
-        print(round(outstanding_amount,2))
+        # print(round(outstanding_amount,2))
         return outstanding_amount
         
         
@@ -84,7 +84,7 @@ class LoanPackagePayments(LoanPackage):
         sbalance_amount, _term_period, _remaining_period = self.show_package_brief()
         rates_monthly_list = InterestRateMultiple(self.n_ir,self.n_term_end).given_monthly_rate_list
         rates_monthly_list=[x*100 for x in rates_monthly_list]
-        print("rates_monthly_list",rates_monthly_list)
+        # print("rates_monthly_list",rates_monthly_list)
         monthly_install_list=[]
         for each in range(0,len(rates_monthly_list)):
             # print("DEBUG",rates_monthly_list[each],_remaining_period[each],_term_period[each])

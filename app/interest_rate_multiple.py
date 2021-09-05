@@ -1,6 +1,6 @@
 
-from app.InterestRateMarket import InterestRateMarket
-# from InterestRateMarket import InterestRateMarket
+from app.interest_rate_market import InterestRateMarket
+# from interest_rate_market import InterestRateMarket
 
 class InterestRateMultiple(InterestRateMarket):
     '''
@@ -45,7 +45,7 @@ class InterestRateMultiple(InterestRateMarket):
     # property setter
     @given_monthly_rate_list.setter
     def given_monthly_rate_list(self, value):
-        print("setter monthly rate")
+        # print("setter monthly rate")
         if isinstance(value, str) and value != "":
             # print("this is string value")
             float_list=self.string_to_float_list(value)
@@ -65,13 +65,13 @@ class InterestRateMultiple(InterestRateMarket):
     # property getter
     @property
     def given_annual_rate_list(self):
-        print("getter")
+        # print("getter")
         return self._given_annual_rate_list
     
     # property setter
     @given_annual_rate_list.setter
     def given_annual_rate_list(self, value):
-        print("setter annual rate")
+        # print("setter annual rate")
         if isinstance(value, str):
             float_list=self.string_to_float_list(value)
             if isinstance(float_list, list):
@@ -92,7 +92,7 @@ class InterestRateMultiple(InterestRateMarket):
 
     ## this function is used to convert string for interest rate to float list
     def string_to_float_list(self,string_list):
-        print(type(string_list))
+        # print(type(string_list))
         if isinstance(string_list, str):
             if "," not in string_list:
                 return float(string_list)
@@ -105,7 +105,7 @@ class InterestRateMultiple(InterestRateMarket):
     '''
     ## this function is used to convert string for term period to int list
     def string_to_int_list(self,string_list):
-        print(type(string_list))
+        # print(type(string_list))
         if isinstance(string_list, str):
             if "," not in string_list:
                 return int(string_list)
@@ -117,7 +117,7 @@ class InterestRateMultiple(InterestRateMarket):
     # property getter
     @property
     def given_term_period_list(self):
-        print("getter")
+        # print("getter")
         return self._given_term_period_list
     
     # # property setter
@@ -132,18 +132,18 @@ class InterestRateMultiple(InterestRateMarket):
     # property setter
     @given_term_period_list.setter
     def given_term_period_list(self, value):
-        print("DEBUG",value,type(value))
+        # print("DEBUG",value,type(value))
         if isinstance(value, str)and value != "":
-            print("DEBUG in string term period")
+            # print("DEBUG in string term period")
             int_list=self.string_to_int_list(value)
-            print("int_list",int_list,type(int_list))
+            # print("int_list",int_list,type(int_list))
             if isinstance(value, int)and value != "":
-                print("---int_list stage1---")
+                # print("---int_list stage1---")
                 self._given_term_period_list = int(int_list)
             elif isinstance(int_list, list):
                 # self._given_term_period_list = [float(x)/100 for x in float_list]
             # else:
-                print("---int_list stage2---")
+                # print("---int_list stage2---")
                 self._given_term_period_list = int_list
             else:
                 self._given_term_period_list = value
@@ -165,7 +165,7 @@ class InterestRateMultiple(InterestRateMarket):
 
 
 
-# # # Testing Case 1
+# # Testing Case 1
 # print("# # Testing Case 1")
 # ir_testpackage=[1.39,1.48,2.3]
 # ir_testpackage=1.39

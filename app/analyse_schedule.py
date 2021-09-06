@@ -24,7 +24,12 @@ class AnalyseSchedule():
     def df(self, df_value):
         if isinstance(df_value, pd.DataFrame) and not df_value.empty:
             self._df = df_value
+    ''' 
+    this function is for the summary of the loan
+    
+    returns total payments, principal, interest of the entire loan
 
+    '''
     def total_ppi(self):
         total_payment=sum(self._df['Payment'])
         total_principal=sum(self._df['Principal'])
@@ -32,14 +37,14 @@ class AnalyseSchedule():
         
         return total_payment,total_principal,total_interest
 
-    # this function is analysis of how much interst vs the principal amount 
+    # this function is analysis of how much interst vs the principal amount returns ratio in percentage
     def interest_to_principal(self):
 
         total_payment,total_principal,total_interest=self.total_ppi()
         ratio=total_interest/total_principal*100
         return ratio
 
-    # this function is analysis of how much payment vs the loan amount
+    # this function is analysis of how much payment vs the loan amount returns ratio in percentage
     def payment_to_loan(self):
 
         total_payment,total_principal,total_interest=self.total_ppi()
@@ -48,7 +53,7 @@ class AnalyseSchedule():
         ratio=total_payment/loan_size*100
         return ratio
 
-    # this function is to return row (period_row) of the dataframe's schedule
+    # this function is to return specific row (period_row) of the dataframe's schedule
     def show_schedule_row(self,period_row):
 
         return self._df['StartBalance'].iloc[period_row], \
@@ -56,14 +61,15 @@ class AnalyseSchedule():
                     self._df['Principal'].iloc[period_row],  \
                     self._df['Interest'].iloc[period_row],   \
                     self._df['EndBalance'].iloc[period_row]
-
+                    
+    # this function to return the quick view of monthly payment and the number of times the payments to be made
     def show_payments_brief(self):
         answer = self._df['Payment']
         from collections import Counter
     
         return Counter(answer).keys(),Counter(answer).values()
         
-        
+    # this function to return individual colums of list to pipe into chartjs 
     def show_yearly_brief(self):
         yearly=len(self._df)//12
         data_sbalance=[]

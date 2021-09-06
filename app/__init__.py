@@ -1,6 +1,11 @@
 from flask import Flask
+from app.middleware import PrefixMiddleware
 
 application = Flask(__name__)
 application.config['SECRET_KEY'] = 'you-will-never-guess'
+
+
+# set voc=False if you run on local computer
+application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=True)
 
 from app import routes

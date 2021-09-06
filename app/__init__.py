@@ -6,6 +6,6 @@ application.config['SECRET_KEY'] = 'you-will-never-guess'
 
 
 # set voc=False if you run on local computer
-application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=True)
+application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=False)
 
 from app import routes

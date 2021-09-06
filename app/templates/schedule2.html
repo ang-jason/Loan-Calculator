@@ -6,6 +6,8 @@
 <h1 class="display-4 lh-1 mb-3">{{ name }}</h1>
 
 
+<!-- This block is the table top summary table -->
+
 <table>
 {% for key, value in summary.items() %}
    <tr>
@@ -25,11 +27,15 @@
   <canvas id="myChart" ></canvas>
 </div>
 </br>
+<!-- This block is for the back button -->
+
 <div class="mb-3">
 	<div class="col-sm-7">
-	<button class="btn btn-outline-primary rounded-pill " onclick="location.href='/index'">Back</button>
+	<button class="btn btn-outline-primary rounded-pill " onclick="location.href='index';">Back</button>
 	</div>
 </div>
+
+<!-- This block is for the chartjs codes -->
 
 <script>
 // <block:setup:1>
@@ -144,6 +150,11 @@ const config = {
     config
   );
 </script>
+
+
+<!-- This block show the monthly schedule -->
+
+
 <!-- {% for table in tables %} -->
             <!-- {{titles[loop.index]}} -->
             <!-- {{ table|safe }} -->

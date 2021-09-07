@@ -8,21 +8,21 @@ from app.interest_rate_multiple import InterestRateMultiple
 class LoanPackage():
     '''
     Expanding for the default Loan Class which allows only single interest rate
-    This class allow list of interest rates and term period 
+    This class allow list of interest rates and term period
     as described detailedly in InterestRateMultiple class
-    Key element is the generate_ix_table which allow usage 
+    Key element is the generate_ix_table which allow usage
     of setting up arrays of respective interest rates and associated periods.
     e.g. IR=1.35,1.5,1.8
         Term=2,3,4
-    [1.35 --- x12 (for year1), 1.35 x12 (for year 2), 
-    1.5,1.5.. x12 (for year 3), 1.8 ... x12 for (year4), 
+    [1.35 --- x12 (for year1), 1.35 x12 (for year 2),
+    1.5,1.5.. x12 (for year 3), 1.8 ... x12 for (year4),
     1.8... end of the total period]
-    Tenor input is to govern the total length ie 30 years 
-    will have 30*12=360 associated interest rates which 
-    first 12 will be 1.35, next 12 will be 1.35 and 1.5 following 12 
+    Tenor input is to govern the total length ie 30 years
+    will have 30*12=360 associated interest rates which
+    first 12 will be 1.35, next 12 will be 1.35 and 1.5 following 12
     and 1.8 for year4's 12 and until the end of loan length
-    A Basic getter functions to get inputted parameters. 
-    Input values were governed by InterestRateMultiple 
+    A Basic getter functions to get inputted parameters.
+    Input values were governed by InterestRateMultiple
     and TotalPeriod as there were class instances in them.
     '''
     def __init__(self, tenor, n_ir, n_term_end=[0]):
@@ -81,7 +81,6 @@ class LoanPackage():
         return flat_list
 
     def __str__(self):
-        # return f"{self.totalperiod}; Interest Rate% (list): {self._n_ir}; Term Period (Years): {self._n_term_end}"
         return f"{self.totalperiod}; {self.loanpackage}"
 # for testing
 # print(help(LoanPackage))

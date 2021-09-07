@@ -4,35 +4,35 @@ from app.interest_rate_market import InterestRateMarket
 
 class InterestRateMultiple(InterestRateMarket):
     '''
-    This is InterestRateMultiple Class that take in a list of interest rate (annual) 
+    This is InterestRateMultiple Class that take in a list of interest rate (annual)
     and a list of term period (years) to dissect and recompute the monthly payment
-    This is expanded from InterestRateMarket to cater for interest rate packages 
-    and their respectively periods (called Term periods) - also allows to 
-    expand to different market conventions if required to add on 
+    This is expanded from InterestRateMarket to cater for interest rate packages
+    and their respectively periods (called Term periods) - also allows to
+    expand to different market conventions if required to add on
     with inheritance of InterestRateMarket class
-    e.g a DBS Home Mortgage Loan 1%pa up to Year1, 1.1%pa up to Year2 
+    e.g a DBS Home Mortgage Loan 1%pa up to Year1, 1.1%pa up to Year2
     and 1.2%pa Year3 and there after.
     IR=1,1.1,1.2
     Term=1,2,3
-    e.g2 UOB Home Loan 1.35%pa for Year1 & 2. 1.5%pa up to Year 3 
+    e.g2 UOB Home Loan 1.35%pa for Year1 & 2. 1.5%pa up to Year 3
     and 1.8%pa Year 4 and there after.
     IR=1.35,1.5,1.8
     Term=2,3,4
-    or 
+    or
     IR=1.35,1.35,1.5,1.8
     Term=1,2,3,4
-    This class mainly to cater to packages definition which 
-    interest rate given should be annual rate (ie pa), 
+    This class mainly to cater to packages definition which
+    interest rate given should be annual rate (ie pa),
     and the term period define on the end of year definition(as illustrated).
-    Both should be of the same length (ie same number of items associations) 
+    Both should be of the same length (ie same number of items associations)
     and separated by commas without space in between.
     Expected input should be float for interest rate without percentage
-    and integer for term periods. As much as testing of foreign or rogue inputs, 
-    as best as cases were validated to assume normal usage and accidential rogue inputs. 
-    However (very) corner cases input were not consider as 
-    this will be governed by frontend and also 
+    and integer for term periods. As much as testing of foreign or rogue inputs,
+    as best as cases were validated to assume normal usage and accidential rogue inputs.
+    However (very) corner cases input were not consider as
+    this will be governed by frontend and also
     to prevent over engineering of input data types.
-    A special internal monthly rate list will be generated internally 
+    A special internal monthly rate list will be generated internally
     for the use of the associated interest rate for the further usage.
     '''
     def __init__(self, given_annual_rate_list, given_term_period_list):

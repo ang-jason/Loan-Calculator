@@ -1,8 +1,8 @@
 import os
 import socket
 
-class PrefixMiddleware(object):
 
+class PrefixMiddleware(object):
     def __init__(self, app, voc=True):
         self.app = app
         if voc:

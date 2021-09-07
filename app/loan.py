@@ -1,11 +1,11 @@
 # Class definition
 class Loan:
-    '''This is beginner Loan Class that take in loan amount (principal), 
-    single interest rate (annual), tenor (years) which 
+    '''This is beginner Loan Class that take in loan amount (principal),
+    single interest rate (annual), tenor (years) which
     is the duration of whole loan
     Description of the components in a Loan
-    A Basic getter and setter functions to 
-    parameters and the expected data types 
+    A Basic getter and setter functions to
+    parameters and the expected data types
     '''
     # Attributes:
     def __init__(self, loan_amount, interest_rate_annual, tenor):
@@ -50,7 +50,7 @@ class Loan:
         display_txt = f"Loan Amount: $ {self._loan_amount}; Interest Rate (Annual): {self._interest_rate} %; Tenor (Years) : {self._tenor}"
         # print(f"Loan Amount: $ {self._loan_amount}")
         # print(f"Interest Rate (Annual): {self._interest_rate} %")
-        # print(f"Tenor (Years) : {self._tenor}")  
+        # print(f"Tenor (Years) : {self._tenor}")
         return display_txt
 
 # T_LOANAMOUNT=440248

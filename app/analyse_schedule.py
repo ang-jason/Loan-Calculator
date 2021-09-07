@@ -3,10 +3,10 @@ import pandas as pd
 
 # Class definition
 class AnalyseSchedule():
-    ''' 
-    This AnalyseSchedule Class is to perform table top 
+    '''
+    This AnalyseSchedule Class is to perform table top
     analytics on the schedule (dataframe)
-    A Basic getter and setter functions to parameters 
+    A Basic getter and setter functions to parameters
     and the intended data types (dataframe)
     '''
     # Attributes:
@@ -23,7 +23,7 @@ class AnalyseSchedule():
     def df(self, df_value):
         if isinstance(df_value, pd.DataFrame) and not df_value.empty:
             self._df = df_value
-    ''' 
+    '''
     this function is for the summary of the loan
     returns total payments, principal, interest of the entire loan
     '''
@@ -33,7 +33,7 @@ class AnalyseSchedule():
         total_interest = sum(self._df['Interest'])
         return total_payment, total_principal, total_interest
 
-    # this function is analysis of how much interst vs 
+    # this function is analysis of how much interst vs
     # the principal amount returns ratio in percentage
     def interest_to_principal(self):
 
@@ -50,7 +50,7 @@ class AnalyseSchedule():
         ratio = total_payment/loan_size*100
         return ratio
 
-    # this function is to return specific row (period_row) 
+    # this function is to return specific row (period_row)
     # of the dataframe's schedule
     def show_schedule_row(self, period_row):
 
@@ -59,7 +59,7 @@ class AnalyseSchedule():
                     self._df['Principal'].iloc[period_row],  \
                     self._df['Interest'].iloc[period_row],   \
                     self._df['EndBalance'].iloc[period_row]
-    # this function to return the quick view of 
+    # this function to return the quick view of
     # monthly payment and the number of times the payments to be made
 
     def show_payments_brief(self):
@@ -67,7 +67,7 @@ class AnalyseSchedule():
         from collections import Counter
         return Counter(answer).keys(), Counter(answer).values()
 
-    # this function to return individual colums of list to pipe into chartjs 
+    # this function to return individual colums of list to pipe into chartjs
     def show_yearly_brief(self):
         yearly = len(self._df)//12
         data_sbalance = []
@@ -76,12 +76,12 @@ class AnalyseSchedule():
         data_interest = []
         for i in range(yearly):
             # print(self.show_schedule_row(i*12))
-            # capture starting balance, payments & principal & interest? 
+            # capture starting balance, payments & principal & interest?
             # more meaning?
             data_sbalance.append(self.show_schedule_row(i*12)[0])
             data_payment.append(self.show_schedule_row(i*12)[1])
             data_principal.append(self.show_schedule_row(i*12)[2])
-            data_interest.append(self.show_schedule_row(i*12)[3])     
+            data_interest.append(self.show_schedule_row(i*12)[3])
         yearly_labels = [x+1 for x in range(yearly)]
         # print(yearly_labels)
         data_col_names = [self._df.columns[x] for x in range(len(self._df.columns)) if x < 4]
@@ -89,7 +89,7 @@ class AnalyseSchedule():
         return yearly_labels, data_col_names, data_sbalance, \
             data_payment, data_principal, data_interest
 
-    ''' 
+    '''
     this function is to analytical table top summary of the loan
     (this basic format should be as shown below)
     # Your Table Top Summary of the Loan
@@ -102,8 +102,8 @@ class AnalyseSchedule():
     #
     # Principal Balance after Year 2: XXX
     # Principal Balance after Year 3: XXX
-    # Principal Balance after Year 5: XXX   
-    '''    
+    # Principal Balance after Year 5: XXX
+    '''
     def loan_tabletop_brief(self):
 
         # this is for total_payment,total_principal,total_interest
@@ -114,7 +114,7 @@ class AnalyseSchedule():
 
         # this is for assoicated monthly payments
         mthly_payments, mthly_period = self.show_payments_brief()
-        mthly_payments = ['$ {0:.{1}f}'.format(x, 2) for x in mthly_payments]
+        mthly_payments = ['$ {0:,.{1}f}'.format(x, 2) for x in mthly_payments]
         # print("This is year 2 loan period")
         # print("This is year 3 loan period")
         # print("This is year 5 loan period")
@@ -124,14 +124,14 @@ class AnalyseSchedule():
 
         # pd.options.display.float_format = '{:,.2f}'.format
         resultant = {
-            "Total interest payable": f'$ {total_interest:.0f}',
-            "Total principal": f'$ {total_principal:.0f}',
-            "Total payable": f'$ {total_payment:.0f}',
+            "Total interest payable": f'$ {total_interest:,.0f}',
+            "Total principal": f'$ {total_principal:,.0f}',
+            "Total payable": f'$ {total_payment:,.0f}',
             "Total payments to loan ratio": f'{ratio:.1f} %',
             "Associated monthly payments": ' '.join(mthly_payments),
-            "Principal after Year 2": f'$ {byear2[-1]:.0f}',
-            "Principal after Year 3": f'$ {byear3[-1]:.0f}',
-            "Principal after Year 5": f'$ {byear5[-1]:.0f}',
+            "Principal after Year 2": f'$ {byear2[-1]:,.0f}',
+            "Principal after Year 3": f'$ {byear3[-1]:,.0f}',
+            "Principal after Year 5": f'$ {byear5[-1]:,.0f}',
             }
         return resultant
 

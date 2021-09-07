@@ -15,7 +15,8 @@ class LoanPackagePayments(LoanPackage):
     as described detailedly in InterestRateMultiple class
     The basic principle is of working out the payment
     schedule/ amorization table is first computed
-    the monthly installments (using monthly rates derived from pa interest rate,
+    the monthly installments (using monthly rates
+    derived from pa interest rate,
     loan length in months and final value theory)
     Further description were illustrated in LoanSchedule class.
     As the input parameters of interest rate
@@ -23,7 +24,8 @@ class LoanPackagePayments(LoanPackage):
     This class is the building blocks of coming out
     the different components of the payment schedule,
     with the difference of monthly payment(mortgage installments)
-    recomputed after the associated term period for the remaining duration of the loan.
+    recomputed after the associated term period
+    for the remaining duration of the loan.
     Means: if using 1.39%pa were used for the 1 year.
     At initial, installments were computed based on 1.39%pa monthly rate
     and for the entire loan tenor and the loan balance.

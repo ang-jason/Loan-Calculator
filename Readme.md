@@ -143,7 +143,7 @@ year2_row = summary.show_schedule_row(2*12-1)
 mthly_payments, mthly_period = summary.show_payments_brief()
 
 # this function is to analytical table top summary of the loan
-# returns the format should be as shown below
+# returns the format should be as shown below (dictionary type)
 # Your Table Top Summary of the Loan
 # Total interest payable: XXX
 # Total principal: XXX
@@ -160,7 +160,8 @@ quick_summary = summary.loan_tabletop_brief()
 
 # to return individual colums of list of yearly rows to pipe into chartjs
 # provide graphical analytics using chartjs by pulling each data columns set
-yearly_labels, data_col_names, data_sbalance, data_payment, data_principal, data_interest = summary.show_yearly_brief()
+yearly_labels, data_col_names, data_sbalance, data_payment, \
+ data_principal, data_interest = summary.show_yearly_brief()
 
 ```
 
@@ -212,6 +213,7 @@ You are using pip version 10.0.1, however version 21.2.4 is available.
 You should consider upgrading via the 'pip install --upgrade pip' command. 
 ```
 Consider updating pip first before `pip install -r requirements.txt`
+
 `pip install --upgrade pip`
 
 

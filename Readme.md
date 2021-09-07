@@ -77,9 +77,9 @@ from loan_schedule import LoanSchedule
 # THE_TENOR=30
 
 # initialse the instance of LoanSchedule
-fixed_rate=LoanSchedule(THE_LOANAMOUNT,THE_RATE,THE_TENOR)
+fixed_rate = LoanSchedule(THE_LOANAMOUNT, THE_RATE, THE_TENOR)
 
-# returns of loan schedule table of dataframe 
+# returns of loan schedule table of dataframe
 # with headers 'StartBalance','Payment', 'Principal', 'Interest', 'EndBalance'
 fixed_rate.show_schedule()
 
@@ -91,23 +91,23 @@ fixed_rate.monthly_payment_computed()
 # distinction: this module is meant for multiple rates & terms
 from loan_schedule_multiple import LoanScheduleMultiple
 
-# typical package: 1.39%pa for period up to Year 1. 
+# typical package: 1.39%pa for period up to Year 1.
 #                  1.48%pa for period up to Year 5 (Year 2 - Year 5)
 #                  2.30%pa for period from Year 6 onwards (Year 5 - Year 6 onwards)
 #                  
-# THE_LOANAMOUNT=440248                 
+# THE_LOANAMOUNT=440248
 # THE_RATE=[1.39,1.48,2.3]
 # THE_TERM=[1,5,6]
 # THE_TENOR=30
 
 
-
 # initialse the instance of LoanScheduleMultiple
-package_rate= LoanScheduleMultiple(THE_LOANAMOUNT,THE_RATE,THE_TERM,THE_TENOR)
+package_rate = LoanScheduleMultiple(THE_LOANAMOUNT, THE_RATE, THE_TERM, THE_TENOR)
 
-# returns of loan schedule table of dataframe 
+# returns of loan schedule table of dataframe
 # with headers 'StartBalance','Payment', 'Principal', 'Interest', 'EndBalance'
 package_rate.show_schedule()
+
 ```
 
 After generating the `show_schedule()` dataframe, we make use of `AnalyseSchedule` module to provide further analytics.
@@ -117,34 +117,30 @@ After generating the `show_schedule()` dataframe, we make use of `AnalyseSchedul
 from analyse_schedule import AnalyseSchedule
 
 # loan schedule x into AnalyseSchedule class for further summary generation
-summary=AnalyseSchedule(x)
+summary = AnalyseSchedule(x)
 
 # this function is for the summary of the loan
 # returns total payments, principal, interest of the entire loan
-total_payment,total_principal,total_interest=summary.total_ppi()
+total_payment, total_principal, total_interest = summary.total_ppi()
 
 
-# this function is analysis of how much interst vs the principal amount 
+# this function is analysis of how much interst vs the principal amount
 # returns ratio in percentage
-ratio=summary.interest_to_principal()
+ratio = summary.interest_to_principal()
 
 # this function is analysis of how much payment vs the loan amount
 # returns ratio in percentage
-ratio=summary.payment_to_loan()
-
+ratio = summary.payment_to_loan()
 
 
 # this function is to return specific row (period_row) of the dataframe's schedule
-# input based on months less 1 due to starting 0. 
+# input based on months less 1 due to starting 0.
 # e.g Year 2 = 2*12 = 24 -1 = 23th row
-year2_row=summary.show_schedule_row(2*12-1)
+year2_row = summary.show_schedule_row(2*12-1)
 
 
 # this function to return the quick view of monthly payment and the number of times the payments to be made
-mthly_payments,mthly_period=summary.show_payments_brief()
-
-
-
+mthly_payments, mthly_period = summary.show_payments_brief()
 
 # this function is to analytical table top summary of the loan
 # returns the format should be as shown below
@@ -158,14 +154,14 @@ mthly_payments,mthly_period=summary.show_payments_brief()
 #
 # Principal Balance after Year 2: XXX
 # Principal Balance after Year 3: XXX
-# Principal Balance after Year 5: XXX   
-quick_summary=summary.loan_tabletop_brief()
+# Principal Balance after Year 5: XXX
+quick_summary = summary.loan_tabletop_brief()
 
 
-# to return individual colums of list of yearly rows to pipe into chartjs 
+# to return individual colums of list of yearly rows to pipe into chartjs
 # provide graphical analytics using chartjs by pulling each data columns set
-yearly_labels,data_col_names,data_sbalance, \
-data_payment,data_principal,data_interest=summary.show_yearly_brief()
+yearly_labels, data_col_names, data_sbalance, data_payment, data_principal, data_interest = summary.show_yearly_brief()
+
 ```
 
 ## UML Diagram
@@ -187,7 +183,8 @@ There is a possible that the computation could be divided by 360/365 (days) and 
 def __init__(self, given_annual_rate, year_length=12, month_length=0):
     self.given_annual_rate = given_annual_rate/100.0
     self.year_length = year_length
-    self.month_length= month_length
+    self.month_length = month_length
+
 ```
 
 

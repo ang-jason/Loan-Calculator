@@ -2,12 +2,12 @@
 {'type':'meta', 'info1':'Lorem ipsum dolor sit amet, consectetur adipiscing elit is latin. Comments are saved.'}
 {'type':'umlshape', 'id':'InterestRateMarket', 'x':413, 'y':677, 'width':190, 'height':218, 'attrs': '_given_annual_rate|_month_length|_year_length|compute_monthly|given_annual_rate|month_length|year_length', 'meths': '__init__|__str__|year_length'}
 {'type':'umlshape', 'id':'InterestRateMultiple', 'x':689, 'y':677, 'width':210, 'height':218, 'attrs': '_given_annual_rate_list|_given_monthly_rate_list|_given_term_period_list|given_annual_rate_list|given_monthly_rate_list|given_term_period_list', 'meths': '__init__|__str__|string_to_float_list|string_to_int_list'}
-{'type':'umlshape', 'id':'Loan', 'x':445, 'y':464, 'width':122, 'height':186, 'attrs': '_interest_rate|_loan_amount|_tenor|interest_rate|loan_amount|tenor', 'meths': '__init__|tell_details'}
+{'type':'umlshape', 'id':'Loan', 'x':529, 'y':427, 'width':122, 'height':186, 'attrs': '_interest_rate|_loan_amount|_tenor|interest_rate|loan_amount|tenor', 'meths': '__init__|tell_details'}
 {'type':'umlshape', 'id':'LoanPackage', 'x':1021, 'y':702, 'width':146, 'height':170, 'attrs': 'loanpackage|n_ir|n_term_end|totalperiod', 'meths': '__init__|__str__|generate_ix_table'}
-{'type':'umlshape', 'id':'TotalPeriod', 'x':817, 'y':351, 'width':156, 'height':168, 'attrs': '_given_tenor|given_tenor|total_period', 'meths': '__init__|__str__'}
-{'type':'umlshape', 'id':'LoanPackagePayments', 'x':993, 'y':80, 'width':202, 'height':218, 'attrs': '_loan_amount|loan_amount', 'meths': '__init__|compute_monthly_payments|installments_array|monthly_payment_computed|monthly_payments|outstanding_amount|period_factor|show_package_brief'}
-{'type':'umlshape', 'id':'LoanSchedule', 'x':406, 'y':20, 'width':202, 'height':346, 'attrs': '_monthly_ir|_topup_amount|_total_period|monthly_rate|to_html|topup_amount|total_period', 'meths': '__init__|__str__|compute_schedule|installments_array|interest_function|monthly_payment_computed|monthly_payments|outstanding_amount|period_factor|principal_function|show_schedule'}
-{'type':'umlshape', 'id':'LoanScheduleMultiple', 'x':688, 'y':92, 'width':210, 'height':196, 'attrs': '_ir_obj|_total_period', 'meths': '__init__|compute_schedule|interst_function'}
+{'type':'umlshape', 'id':'TotalPeriod', 'x':817, 'y':351, 'width':120, 'height':138, 'attrs': '_given_tenor|given_tenor|total_period', 'meths': '__init__|__str__'}
+{'type':'umlshape', 'id':'LoanPackagePayments', 'x':996, 'y':53, 'width':202, 'height':218, 'attrs': '_loan_amount|loan_amount', 'meths': '__init__|compute_monthly_payments|installments_array|monthly_payment_computed|monthly_payments|outstanding_amount|period_factor|show_package_brief'}
+{'type':'umlshape', 'id':'LoanSchedule', 'x':407, 'y':-13, 'width':202, 'height':346, 'attrs': '_monthly_ir|_topup_amount|_total_period|monthly_rate|to_html|topup_amount|total_period', 'meths': '__init__|__str__|compute_schedule|installments_array|interest_function|monthly_payment_computed|monthly_payments|outstanding_amount|period_factor|principal_function|show_schedule'}
+{'type':'umlshape', 'id':'LoanScheduleMultiple', 'x':688, 'y':92, 'width':210, 'height':138, 'attrs': '_ir_obj|_total_period', 'meths': '__init__|compute_schedule|interst_function'}
 {'type':'comment', 'id':'C3344', 'x':677, 'y':20, 'width':200, 'height':36, 'comment': 'TG9hbiBDYWxjdWxhdG9y'}
 {'type':'edge', 'id':'InterestRateMultiple_to_InterestRateMarket', 'source':'InterestRateMultiple', 'target':'InterestRateMarket', 'uml_edge_type': 'generalisation'}
 {'type':'edge', 'id':'TotalPeriod_to_LoanPackage', 'source':'TotalPeriod', 'target':'LoanPackage', 'uml_edge_type': 'composition'}
@@ -17,8 +17,7 @@
 {'type':'edge', 'id':'LoanScheduleMultiple_to_LoanSchedule', 'source':'LoanScheduleMultiple', 'target':'LoanSchedule', 'uml_edge_type': 'generalisation'}
 {'type':'edge', 'id':'LoanScheduleMultiple_to_LoanPackagePayments', 'source':'LoanScheduleMultiple', 'target':'LoanPackagePayments', 'uml_edge_type': 'generalisation'}
 {'type':'edge', 'id':'InterestRateMultiple_to_LoanScheduleMultiple', 'source':'InterestRateMultiple', 'target':'LoanScheduleMultiple', 'uml_edge_type': 'composition'}
-{'type':'edge', 'id':'InterestRateMultiple_to_LoanSchedule', 'source':'InterestRateMultiple', 'target':'LoanSchedule', 'uml_edge_type': 'composition'}
-{'type':'edge', 'id':'InterestRateMultiple_to_LoanSchedule', 'source':'InterestRateMultiple', 'target':'LoanSchedule', 'uml_edge_type': 'composition'}
 {'type':'edge', 'id':'TotalPeriod_to_LoanScheduleMultiple', 'source':'TotalPeriod', 'target':'LoanScheduleMultiple', 'uml_edge_type': 'composition'}
 {'type':'edge', 'id':'TotalPeriod_to_LoanSchedule', 'source':'TotalPeriod', 'target':'LoanSchedule', 'uml_edge_type': 'composition'}
 {'type':'edge', 'id':'LoanPackagePayments_to_InterestRateMultiple', 'source':'LoanPackagePayments', 'target':'InterestRateMultiple', 'uml_edge_type': 'generalisation'}
+{'type':'edge', 'id':'InterestRateMarket_to_LoanSchedule', 'source':'InterestRateMarket', 'target':'LoanSchedule', 'uml_edge_type': 'composition'}

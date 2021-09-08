@@ -92,8 +92,8 @@ application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=False)
 ###### Example of a typcial loan offering:
 
 >3.39%pa for period Year 0 and up to Year 1. 
->4.48%pa for period up to Year 5 (Year 2 - Year 5)
->5.30%pa for period from Year 6 onwards (Year 5 - Year 6 onwards)
+4.48%pa for period up to Year 5 (Year 2 - Year 5)
+5.30%pa for period from Year 6 onwards (Year 5 - Year 6 onwards)
 
 Loan amount `440248`
 Annual interest rate `1.39,1.48,2.3`
@@ -222,7 +222,7 @@ yearly_labels, data_col_names, data_sbalance, data_payment, \
 
 
 ## Under the hood
-InterestRateMarket class was created with future flexible of market conventions. Some financial institution may differ from market convention.
+InterestRateMarket class was created with future flexible of market conventions. Some financial institutions may differ from the market convention.
 
 *E.g if the interest rate is 1.39% pa. The monthly rate will be 1.39%/12(months).*
 

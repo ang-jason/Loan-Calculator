@@ -9,7 +9,7 @@ Loan Calculator is a app-lite Python library providing analytics and amortisatio
 
 ## Motivation*
 - Everyone in Singapore will want to attain a house. Be it public and private housing, the needful of taking a loan will be a necessity
-- You should be able to make an informed decision for your loan/mortgage (a real live example)
+- You should be able to make an informed decision for your loan/mortgage (with examples)
 - Understand the mechanics behind them
 - How interest rate affects the mortgage
 - Demystify public domain lingo and what it entails

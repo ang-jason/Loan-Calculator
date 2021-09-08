@@ -6,6 +6,15 @@ Loan Calculator is a app-lite Python library providing analytics and amorization
 
 ##### Quick Calculator Software: You may tend to do some specific calculation again and again. As an example, it can be your financial calculator for investment or retirement savings. You can write a Python program to do these tasks.
 
+
+## Motivation
+- Every one in Singapore will want to attain a house. Be it public and private housing, the needful of taking a loan to attain the house is necessary.
+- You should be able to navigate taking up a loan/mortgage. 
+- Understand the mechanics behind them. 
+- How interest rate affects the mortgage
+- Demystify public domain lingo and what it entails
+<img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/frontpage1.PNG?raw=true" width="100" height="100">
+
 ## Setup (on Linux)
 1. Clone the repository from Github. On your terminal or Git Bash
 2. Create Virtual Environment (MacOS/Linux): From the root folder, i.e. `Loan-Calculator`, create virtual environment called `virtenv`.
@@ -202,6 +211,9 @@ https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms
 https://stackoverflow.com/questions/14652325/python-dictionary-in-to-html-table/14656262
 https://stackoverflow.com/questions/7975365/how-can-i-make-this-loop-with-jinja2
 https://github.com/abulka/pynsource
+https://www.moneysense.gov.sg/financial-tools/mortgage-calculator
+![MoneySense Mortgage Calculator](https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/money_sense_screen.PNG?raw=true)
+
 ## Notes
 Reconciliation working excel file provided in `misc_docs`.
 

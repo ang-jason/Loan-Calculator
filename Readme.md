@@ -262,7 +262,7 @@ class InterestRateMultiple(InterestRateMarket):
 ## Notes
 Reconciliation working excel file provided in `misc_docs`.
 
-Code were written and clean up to PEP8 guide (using https://github.com/PyCQA/pycodestyle).
+Code were written and clean up to meet PEP8 guide (using https://github.com/PyCQA/pycodestyle).
 
 ## References
 https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates

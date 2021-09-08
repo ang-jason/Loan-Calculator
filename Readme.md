@@ -20,6 +20,10 @@ Loan Calculator is a app-lite Python library providing analytics and amortisatio
 ## Introduction*
 A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank). This web application equips you with evaluative information in comparing each loan package offering in the market.
 
+
+![](https://i.imgur.com/wXxva3H.png)
+
+
 **To compute the monthly payments - it is a function (loan amount, interest rates, loan duration).**
 
 <img src="https://i.imgur.com/YX9Gw1R.png" width="70%" height="70%">
@@ -72,6 +76,13 @@ flask run
 ```
 
 #### Dev Environment or Vocareum
+
+If you are using your own computer, make sure to change the flag voc=False in the following line inside `/app/__init__.py`.
+```
+# set voc=False if you run on local computer
+application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=False)
+```
+
 Use `pwd` and `ls` to ensure that you see the `runflaskvoc.sh` in the current folder.
 Make sure that the script is executable by running the following command.
 ```bash
@@ -83,7 +94,7 @@ To run the script to spin up the setup, type the following.
 ```bash
 ./runflaskvoc.sh
 ```
-
+#### Successful Setup
 The following will be displayed on screen:
 ```
    Use a production WSGI server instead.
@@ -94,11 +105,7 @@ Once it is running, you can open another tab in your browser and type the follow
 
 To stop the web app type `CTRL+C`.
 
-If you are using your own computer, make sure to change the flag voc=False in the following line inside `/app/__init__.py`.
-```
-# set voc=False if you run on local computer
-application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=False)
-```
+
 [Setting up issues here](#Vocareum-Troubleshooting)
 ## Flask Website Usage
 **1. Upon accessing the website, input the parameters of the loan.**
@@ -107,7 +114,7 @@ application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=False)
 
 >1.39%pa for period Year 0 and up to Year 1.  
 1.48%pa for period up to Year 5 (Year 2 - Year 5)  
-2.30%pa for period from Year 6 onwards
+2.30%pa for period from Year 6 onwards (Year 5 - Year 6 onwards)  
 
 Loan amount `440248`
 Annual interest rate `1.39,1.48,2.3`
@@ -157,7 +164,7 @@ from loan_schedule_multiple import LoanScheduleMultiple
 
 # typical package: 1.39%pa for period up to Year 1.
 #                  1.48%pa for period up to Year 5 (Year 2 - Year 5)
-#                  2.30%pa for period from Year 6 onwards (Year 5 - Year 6 onwards)
+#                  2.30%pa for period from Year 6 onwards
 #                  
 # THE_LOANAMOUNT=440248
 # THE_RATE=[1.39,1.48,2.3]

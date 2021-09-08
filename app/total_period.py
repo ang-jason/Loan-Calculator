@@ -26,5 +26,4 @@ class TotalPeriod:
 
     def __str__(self):
         print(f"-"*50)
-        return (f"Years : {self._given_tenor}; Total Period {self._given_tenor*12}")
-
+        return (f"Years : {self._given_tenor}; Total Period : {self._given_tenor*12}")

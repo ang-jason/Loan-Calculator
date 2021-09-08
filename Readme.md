@@ -25,6 +25,7 @@ A mortgage entails paying your monthly payments (installments). The party that p
 <img src="https://i.imgur.com/YX9Gw1R.png" width="70%" height="70%">
 (picture from https://www.wallstreetmojo.com/mortgage-formula/)
 
+
 - **P** - Princpal, Loan amount `$440,248`
 - **r** - Annual interest rate `1.39%pa`
 - **n** - Number of payable periods (typical in months) (`30` years)

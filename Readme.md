@@ -18,7 +18,7 @@ Loan Calculator is a app-lite Python library providing analytics and amortisatio
 
 
 ## Introduction*
-A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank). This web application allow you to have full information in comparing between each loan package offering in the market.
+A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank). This web application equips you with evaluative information in comparing each loan package offering in the market.
 
 **To compute the monthly payments - it is a function (loan amount, interest rates, loan duration).**
 

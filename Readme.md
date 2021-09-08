@@ -1,6 +1,6 @@
 [![PayPal donate button](https://img.shields.io/badge/Support-LoanCalculator-blue)](https://github.com/ang-jason/Loan-Calculator)
 # Loan Calculator
-Loan Calculator is a app-lite Python library providing analytics and amortization table for your mortgage computation (local context)
+Loan Calculator is a app-lite Python library providing analytics and amortisation table for your mortgage computation (local context)
 
 ### This is an open-ended category.
 
@@ -22,15 +22,15 @@ A mortgage entails paying your monthly payments (installments). The party that p
 To compute the monthly payments - it is a function (loan amount, interest rates, loan duration)
 ![](https://i.imgur.com/YX9Gw1R.png)(picture from https://www.wallstreetmojo.com/mortgage-formula/)
 
-- P - Princpal, Loan amount `$440,248`
-- r - Annual interest rate `1.39%pa`
-- n - No. of payable periods (typical in months) (`30` years)
+- **P** - Princpal, Loan amount `$440,248`
+- **r** - Annual interest rate `1.39%pa`
+- **n** - Number of payable periods (typical in months) (`30` years)
 
 For a fixed interest rate (`1.39%`), the monthly payment will be fixed throughout the loan. If it is a variable rate, then your monthly payment will be recomputed every fixed date by the policy of the loan. In market convention, the rate is quoted in an annual basis, and since the payment period is in monthly terms, the monthly rate will be the annual rate is divided by 12. (ie `1.39%/12`)
 
 
 Every month, the payment (`$1,496.26`) to the bank does not directly attribute to your outstanding loan.
-A monthly payment consists of two components - Principal **( P)** and Interest **(I)**
+A monthly payment consists of two components - Principal, **P** and Interest, **I**
 
 Bank will like to take their benefit of providing you the loan - it is the interest. Computed by the previously agreed rate (ie. `1.39%/12`) of the outstanding loan. (`$509.95`)
 
@@ -111,6 +111,8 @@ The design of this library orginated from a single interest rate throughout the 
 
 *Computation were generally done with minimum rounding. Recouncilation were performed to rounding of monthly payment as it illustrate billing to your two decimal places and the diference were negligence.*
 
+### Initiation of Loan Schedule
+
 ```python
 # Begin by importing the LoanSchedule class
 # for single interest rate(fixed)
@@ -155,6 +157,7 @@ package_rate.show_schedule()
 
 ```
 
+### Processing analytics
 After generating the `show_schedule()` dataframe, we make use of `AnalyseSchedule` module to provide further analytics.
 
 ```python
@@ -216,20 +219,30 @@ yearly_labels, data_col_names, data_sbalance, data_payment, \
 
 
 ## Under the hood
-InterestRateMarket class was created with future flexible of market conventions. Some financial instituation may differ from market convention.
+InterestRateMarket class was created with future flexible of market conventions. Some financial institution may differ from market convention.
 
 *E.g if the interest rate is 1.39% pa. The monthly rate will be 1.39%/12(months).*
 
 There is a possible that the computation could be divided by 360/365 (days) and multiple by calendar days in month or 30.
 
 ```python    
-def __init__(self, given_annual_rate, year_length=12, month_length=0):
-    self.given_annual_rate = given_annual_rate/100.0
-    self.year_length = year_length
-    self.month_length = month_length
+class InterestRateMarket:
+    def __init__(self, given_annual_rate, year_length=12, month_length=0):
+        self.given_annual_rate = given_annual_rate/100.0
+        self.year_length = year_length
+        self.month_length = month_length
 
 ```
+Expanding on to the various available loan packages in the market, InterestRateMultiple class was created to accept multiple stepped interest rates and term periods.
 
+```python    
+class InterestRateMultiple(InterestRateMarket):
+    def __init__(self, given_annual_rate_list, given_term_period_list):
+        self.given_annual_rate_list = given_annual_rate_list
+        self.given_term_period_list = given_term_period_list
+        self.given_monthly_rate_list = given_annual_rate_list
+
+```
 
 
 ## Future Features or Improvements

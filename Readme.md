@@ -107,7 +107,7 @@ application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=False)
 
 >1.39%pa for period Year 0 and up to Year 1.  
 1.48%pa for period up to Year 5 (Year 2 - Year 5)  
-2.30%pa for period from Year 6 onwards (Year 5 - Year 6 onwards)  
+2.30%pa for period from Year 6 onwards
 
 Loan amount `440248`
 Annual interest rate `1.39,1.48,2.3`

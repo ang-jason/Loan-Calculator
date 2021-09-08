@@ -246,6 +246,10 @@ class InterestRateMultiple(InterestRateMarket):
         self.given_monthly_rate_list = given_annual_rate_list
 
 ```
+## Unit testing
+- [X] Loan
+- [X] TotalPeriod
+- [X] InterestRateMultiple
 
 
 ## Future Features or Improvements

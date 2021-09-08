@@ -72,6 +72,18 @@ flask run
 ```
 
 #### Dev Environment or Vocareum
+Use `pwd` and `ls` to ensure that you see the `runflaskvoc.sh` in the current folder.
+Make sure that the script is executable by running the following command.
+```bash
+chmod a+x ./runflaskvoc.sh
+```
+The above script is to change the file to be executable for all users, group and owner.
+
+To run the script to spin up the setup, type the following.
+```bash
+./runflaskvoc.sh
+```
+
 The following will be displayed on screen:
 ```
    Use a production WSGI server instead.

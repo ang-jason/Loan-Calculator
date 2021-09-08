@@ -1,20 +1,54 @@
 [![PayPal donate button](https://img.shields.io/badge/Support-LoanCalculator-blue)](https://github.com/ang-jason/Loan-Calculator)
 # Loan Calculator
-Loan Calculator is a app-lite Python library providing analytics and amorization table for your mortgage computation (local context)
+Loan Calculator is a app-lite Python library providing analytics and amortization table for your mortgage computation (local context)
 
 ### This is an open-ended category.
 
 ##### Quick Calculator Software: You may tend to do some specific calculation again and again. As an example, it can be your financial calculator for investment or retirement savings. You can write a Python program to do these tasks.
 
 
-## Motivation
-- Everyone in Singapore will want to attain a house. Be it public and private housing, the needful of taking a loan to attain the house is necessary.
-- You should be able to navigate taking up a loan/mortgage. 
-- Understand the mechanics behind them. 
+## Motivation*
+- Everyone in Singapore will want to attain a house. Be it public and private housing, the needful of taking a loan will be a necessity
+- You should be able to make an informed decision for your loan/mortgage (a real live example)
+- Understand the mechanics behind them
 - How interest rate affects the mortgage
 - Demystify public domain lingo and what it entails
 
 <img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture3.PNG?raw=true" width="50%" height="50%"><img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture4.PNG?raw=true" width="50%" height="50%"><img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture2.PNG?raw=true" width="50%" height="50%">
+
+
+## Introduction*
+A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank)
+To compute the monthly payments - it is a function (loan amount, interest rates, loan duration)
+![](https://i.imgur.com/YX9Gw1R.png)(picture from https://www.wallstreetmojo.com/mortgage-formula/)
+
+- P - Princpal, Loan amount `$440,248`
+- r - Annual interest rate `1.39%pa`
+- n - No. of payable periods (typical in months) (`30` years)
+
+For a fixed interest rate (`1.39%`), the monthly payment will be fixed throughout the loan. If it is a variable rate, then your monthly payment will be recomputed every fixed date by the policy of the loan. In market convention, the rate is quoted in an annual basis, and since the payment period is in monthly terms, the monthly rate will be the annual rate is divided by 12. (ie `1.39%/12`)
+
+
+Every month, the payment (`$1,496.26`) to the bank does not directly attribute to your outstanding loan.
+A monthly payment consists of two components - Principal **( P)** and Interest **(I)**
+
+Bank will like to take their benefit of providing you the loan - it is the interest. Computed by the previously agreed rate (ie. `1.39%/12`) of the outstanding loan. (`$509.95`)
+
+The remaining amount will be used to pay your outstanding loan. (ie. Principal `$986.30`)
+
+Your loan amount will left `$440,248 - $986.30 = $439,261.70`
+
+This happens in Month 1 of your loan. The following month, you pay the same payment of `$1,496.26` to the bank. 
+
+Bank will take their benefits, the interest `$508.81` which is recomputed based on the outstanding loan balance `$439,261.70` using the same interest rate.
+
+The principal amount ` $987.44` will be used to pay your outstanding loan. 
+
+The outstanding loan balance will reduce to `$438,274.25`.
+
+This will continue for the entire duration of the loan `30` years of `12*30=360` payments. The above setup the payment schedule or amortization  table for this web app.
+
+If it is package terms (`1.39%`, `1.48%`, `2.3%`) or variable rates, the interest rate and its periods will differ, resulting in the monthly payments changing accordingly.
 
 
 ## Setup (on Linux)
@@ -54,7 +88,7 @@ application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=False)
 
 ###### Example of a typcial loan offering:
 
->3.39%pa for period up to Year 1. 
+>3.39%pa for period Year 0 and up to Year 1. 
 >4.48%pa for period up to Year 5 (Year 2 - Year 5)
 >5.30%pa for period from Year 6 onwards (Year 5 - Year 6 onwards)
 
@@ -207,6 +241,12 @@ def __init__(self, given_annual_rate, year_length=12, month_length=0):
 - [ ] resolve corner cases
 - [ ] add accordion for yearly row
 
+
+## Notes
+Reconciliation working excel file provided in `misc_docs`.
+
+Code were written and clean up to PEP8 guide (using https://github.com/PyCQA/pycodestyle).
+
 ## References
 https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates
 https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms
@@ -214,12 +254,6 @@ https://stackoverflow.com/questions/14652325/python-dictionary-in-to-html-table/
 https://stackoverflow.com/questions/7975365/how-can-i-make-this-loop-with-jinja2
 https://github.com/abulka/pynsource
 https://www.moneysense.gov.sg/financial-tools/mortgage-calculator
-![MoneySense Mortgage Calculator](https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/money_sense_screen.PNG?raw=true)
-
-## Notes
-Reconciliation working excel file provided in `misc_docs`.
-
-Code clean up should be means PEP8 (using https://github.com/PyCQA/pycodestyle).
 
 
 ## Vocareum Troubleshooting

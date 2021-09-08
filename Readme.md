@@ -18,8 +18,9 @@ Loan Calculator is a app-lite Python library providing analytics and amortisatio
 
 
 ## Introduction*
-A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank)
-To compute the monthly payments - it is a function (loan amount, interest rates, loan duration)
+A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank).
+
+**To compute the monthly payments - it is a function (loan amount, interest rates, loan duration).**
 
 <img src="https://i.imgur.com/YX9Gw1R.png" width="70%" height="70%">
 (picture from https://www.wallstreetmojo.com/mortgage-formula/)

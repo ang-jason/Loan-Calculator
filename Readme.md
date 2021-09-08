@@ -8,13 +8,15 @@ Loan Calculator is a app-lite Python library providing analytics and amorization
 
 
 ## Motivation
-- Every one in Singapore will want to attain a house. Be it public and private housing, the needful of taking a loan to attain the house is necessary.
+- Everyone in Singapore will want to attain a house. Be it public and private housing, the needful of taking a loan to attain the house is necessary.
 - You should be able to navigate taking up a loan/mortgage. 
 - Understand the mechanics behind them. 
 - How interest rate affects the mortgage
 - Demystify public domain lingo and what it entails
-<img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/frontpage1.PNG?raw=true" width="100" height="100">
-![Loan Calculator](https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/frontpage1.PNG?raw=true){:height="50%" width="50%"}
+<img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture2.PNG?raw=true" width="50%" height="50%">
+<img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture3.PNG?raw=true" width="50%" height="50%">
+<img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture4.PNG?raw=true" width="50%" height="50%">
+
 
 ## Setup (on Linux)
 1. Clone the repository from Github. On your terminal or Git Bash

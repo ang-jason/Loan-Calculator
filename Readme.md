@@ -14,7 +14,7 @@ Loan Calculator is a app-lite Python library providing analytics and amorization
 - How interest rate affects the mortgage
 - Demystify public domain lingo and what it entails
 <img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/frontpage1.PNG?raw=true" width="100" height="100">
-![Loan Calculator](https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/frontpage1.PNG?raw=true =250x250)
+![Loan Calculator](https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/frontpage1.PNG?raw=true){:height="50%" width="50%"}
 
 ## Setup (on Linux)
 1. Clone the repository from Github. On your terminal or Git Bash

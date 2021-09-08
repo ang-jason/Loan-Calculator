@@ -9,7 +9,7 @@ Loan Calculator is a app-lite Python library providing analytics and amortisatio
 
 ## Motivation*
 - Everyone in Singapore will want to attain a house. Be it public and private housing, the needful of taking a loan will be a necessity
-- You should be able to make an informed decision for your loan/mortgage (with examples)
+- You should be able to make an informed decision for your loan/mortgage (a real live example)
 - Understand the mechanics behind them
 - How interest rate affects the mortgage
 - Demystify public domain lingo and what it entails
@@ -18,13 +18,14 @@ Loan Calculator is a app-lite Python library providing analytics and amortisatio
 
 
 ## Introduction*
-A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank).
+A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank). This web application allow you to have full information in comparing between each loan package offering in the market.
 
 **To compute the monthly payments - it is a function (loan amount, interest rates, loan duration).**
 
 <img src="https://i.imgur.com/YX9Gw1R.png" width="70%" height="70%">
 (picture from https://www.wallstreetmojo.com/mortgage-formula/)
 
+### Example
 
 - **P** - Princpal, Loan amount `$440,248`
 - **r** - Annual interest rate `1.39%pa`

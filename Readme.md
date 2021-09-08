@@ -20,10 +20,6 @@ Loan Calculator is a app-lite Python library providing analytics and amortisatio
 ## Introduction*
 A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank). This web application equips you with evaluative information in comparing each loan package offering in the market.
 
-
-![](https://i.imgur.com/wXxva3H.png)
-
-
 **To compute the monthly payments - it is a function (loan amount, interest rates, loan duration).**
 
 <img src="https://i.imgur.com/YX9Gw1R.png" width="70%" height="70%">
@@ -34,6 +30,11 @@ A mortgage entails paying your monthly payments (installments). The party that p
 - **P** - Princpal, Loan amount `$440,248`
 - **r** - Annual interest rate `1.39%pa`
 - **n** - Number of payable periods (typical in months) (`30` years)
+
+
+![](https://i.imgur.com/wXxva3H.png)
+
+
 
 For a fixed interest rate (`1.39%`), the monthly payment will be fixed throughout the loan. If it is a variable rate, then your monthly payment will be recomputed every fixed date by the policy of the loan. In market convention, the rate is quoted in an annual basis, and since the payment period is in monthly terms, the monthly rate will be the annual rate is divided by 12. (ie `1.39%/12`).
 

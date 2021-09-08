@@ -13,6 +13,7 @@ Loan Calculator is a app-lite Python library providing analytics and amorization
 - Understand the mechanics behind them. 
 - How interest rate affects the mortgage
 - Demystify public domain lingo and what it entails
+
 <img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture2.PNG?raw=true" width="50%" height="50%"><img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture3.PNG?raw=true" width="50%" height="50%"><img src="https://github.com/ang-jason/Loan-Calculator/blob/main/misc_docs/Capture4.PNG?raw=true" width="50%" height="50%">
 
 

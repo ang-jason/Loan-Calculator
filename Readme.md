@@ -20,15 +20,15 @@ Loan Calculator is a app-lite Python library providing analytics and amortisatio
 ## Introduction*
 A mortgage entails paying your monthly payments (installments). The party that provides the loan can be a financial institution (ie. the Bank)
 To compute the monthly payments - it is a function (loan amount, interest rates, loan duration)
-<img src="https://i.imgur.com/YX9Gw1R.png" width="70%" height="70%">
 
+<img src="https://i.imgur.com/YX9Gw1R.png" width="70%" height="70%">
 (picture from https://www.wallstreetmojo.com/mortgage-formula/)
 
 - **P** - Princpal, Loan amount `$440,248`
 - **r** - Annual interest rate `1.39%pa`
 - **n** - Number of payable periods (typical in months) (`30` years)
 
-For a fixed interest rate (`1.39%`), the monthly payment will be fixed throughout the loan. If it is a variable rate, then your monthly payment will be recomputed every fixed date by the policy of the loan. In market convention, the rate is quoted in an annual basis, and since the payment period is in monthly terms, the monthly rate will be the annual rate is divided by 12. (ie `1.39%/12`)
+For a fixed interest rate (`1.39%`), the monthly payment will be fixed throughout the loan. If it is a variable rate, then your monthly payment will be recomputed every fixed date by the policy of the loan. In market convention, the rate is quoted in an annual basis, and since the payment period is in monthly terms, the monthly rate will be the annual rate is divided by 12. (ie `1.39%/12`).
 
 
 Every month, the payment (`$1,496.26`) to the bank does not directly attribute to your outstanding loan.
@@ -38,7 +38,7 @@ Bank will like to take their benefit of providing you the loan - it is the inter
 
 The remaining amount will be used to pay your outstanding loan. (ie. Principal `$986.30`)
 
-Your loan amount will left `$440,248 - $986.30 = $439,261.70`
+Your loan amount will left `$440,248 - $986.30 = $439,261.70`.
 
 This happens in Month 1 of your loan. The following month, you pay the same payment of `$1,496.26` to the bank. 
 

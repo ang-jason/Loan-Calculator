@@ -174,36 +174,4 @@ class LoanSchedule(Loan):
         print("printed to html")
         df.to_html('./app/templates/generate.html')
         return df
-# For Testing
-# T_LOANAMOUNT=440248
-# T_RATE=1.39
-# T_TENOR=30
-# s1 = LoanSchedule(T_LOANAMOUNT,T_RATE,T_TENOR)
-# # print(help(LoanSchedule))
 
-
-# result_b_start,payments,resultp,resulti,result_b_end=s1.compute_schedule()
-
-# table_labels=[result_b_start,payments,resultp,resulti,result_b_end]
-# # for each_x in x:
-# #     print(s1.outstanding_amount(each_x))
-# for label in table_labels:
-    # print(len(label))
-
-# import pandas as pd
-
-# ## convert all the list to dataframe for presentation
-# df = pd.DataFrame(table_labels)
-# print(df)
-
-# ## Transpose the df
-# df=df.T
-# df=df.round(4)
-
-# ## data frame labels
-# df.columns = ['SBalance','Payments', 'Principal', 'Interest', 'EBalance']
-# df.index += 1
-# with pd.option_context('display.max_colwidth', None):
-  # # display(df)
-  # print(df.head(13))
-  # print(df.tail(13))

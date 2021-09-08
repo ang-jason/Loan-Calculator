@@ -129,35 +129,5 @@ class LoanPackagePayments(LoanPackage):
         # drop last element
         remainder.pop()
         return list(rates_list), list(term_list), remainder
-        # return list(rates_list),list(term_list)
-# # ### FOR TESTING
-# print("============================================== LoanPackagePayments =======================")
-# loan_amount=440248
-# ir_package1=[1.39,1.48,2.3]
-# testerA=LoanPackagePayments(loan_amount,30,ir_package1)
-
-# testerA.n_term_end=[1,5,6]
-# # print(testerA)
-# print("testerA.n_ir",testerA.n_ir,type(testerA.n_ir))
-# print("testerA.n_term_end",testerA.n_term_end,type(testerA.n_term_end))
-# print("============================================== LoanPackagePayments =======================")
-# # print(help(testerA))
-
-# brief_rate, brief_length,brief_remaining=testerA.show_package_brief()
-
-# print(brief_rate, brief_length,brief_remaining)
-# print(type(brief_rate), type(brief_length),type(brief_remaining))
 
 
-# testerA.monthly_payment_computed(440248,1.39/100/12,360) ##1496.26
-
-# outstand = testerA.outstanding_amount(440248,1.39/100/12,360,12) ## 428336.68
-# testerA.monthly_payment_computed(outstand,1.48/100/12,360-12) ## 1514.58
-
-# outstand = testerA.outstanding_amount(outstand,1.48/100/12,360-12,48) ## 379596.03
-
-# answer=testerA.compute_monthly_payments()
-# print(answer)
-
-# arr = testerA.installments_array()
-# print(len(arr))

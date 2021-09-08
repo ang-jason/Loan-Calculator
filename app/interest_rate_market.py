@@ -63,23 +63,3 @@ class InterestRateMarket:
         print(f"-"*50)
         return (f"Given Rate (Annual): {self._given_annual_rate}; Year Length: {self._year_length}; Month Length: {self._month_length} Monthly Rate: {self.compute_monthly:.5f}")
 
-# TESTING
-
-# testA=InterestRateMarket(1.39)
-# print(testA)
-# print(testA.given_annual_rate,type(testA.given_annual_rate))
-# print(testA.compute_monthly,type(testA.compute_monthly)) ### 0.00115833333333333
-# assert round(testA.compute_monthly,10) == round(0.00115833333333333,10)
-
-# testB=InterestRateMarket(1.39,365,30)
-# print(testB)
-# print(testB.given_annual_rate,type(testB.given_annual_rate))
-# print(testB.compute_monthly,type(testB.compute_monthly)) ### 0.00114246575342466
-# assert round(testB.compute_monthly,10) == round(0.00114246575342466,10)
-
-# # 0.00115833333333333
-# testC=InterestRateMarket(1.39,360,30)
-# print(testC)
-# print(testC.given_annual_rate,type(testC.given_annual_rate))
-# print(testC.compute_monthly,type(testC.compute_monthly)) ## 0.00115833333333333
-# assert round(testC.compute_monthly,10) == round(0.00115833333333333,10)

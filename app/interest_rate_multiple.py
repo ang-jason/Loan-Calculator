@@ -147,47 +147,4 @@ class InterestRateMultiple(InterestRateMarket):
     def __str__(self):
         print(f"-"*50)
         return (f"Given Rate (Annual): {self._given_annual_rate_list}; Given Term (Years): {self._given_term_period_list}; Monthly rates {self._given_monthly_rate_list}")
-# # Testing Case 1
-# print("# # Testing Case 1")
-# ir_testpackage=[1.39,1.48,2.3]
-# ir_testpackage=1.39
-# # n_term_end_testpackage=[1,5,6]
-# n_term_end_testpackage=3
-# print(type(ir_testpackage),type(n_term_end_testpackage))
 
-# testA=InterestRateMultiple(ir_testpackage,n_term_end_testpackage)
-# testA.given_annual_rate_list
-# testA.given_term_period_list
-# # print(testA)
-# # print(help(testA))
-# print("monthly==============")
-# print(testA.given_monthly_rate_list)
-
-
-# # # Testing with String - TEST 1
-# print("# # Testing with String - TEST 1")
-# ir_testpackage="1.39,1.48,2.3"
-# n_term_end_testpackage="1,5,6"
-
-# testA=InterestRateMultiple(ir_testpackage,n_term_end_testpackage)
-# print("testA.given_annual_rate_list",testA.given_annual_rate_list, type(testA.given_annual_rate_list))
-# print("testA.given_term_period_list",testA.given_term_period_list,type(testA.given_term_period_list))
-
-# print(testA)
-
-# print("monthly==============")
-# print(testA.given_monthly_rate_list)
-
-
-# # # # Testing with String - TEST 2
-# print("=============================# # # Testing with String - TEST 2====================================")
-# ir_testpackage="1.39"
-# n_term_end_testpackage="3"
-
-# testA=InterestRateMultiple(ir_testpackage,n_term_end_testpackage)
-# print("testA.given_annual_rate_list",testA.given_annual_rate_list, type(testA.given_annual_rate_list))
-# print("testA.given_term_period_list",testA.given_term_period_list,type(testA.given_term_period_list))
-# testA.given_term_period_list
-# print(testA)
-# print("monthly==============")
-# print(testA.given_monthly_rate_list)

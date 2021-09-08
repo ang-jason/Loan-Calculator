@@ -28,8 +28,3 @@ class TotalPeriod:
         print(f"-"*50)
         return (f"Years : {self._given_tenor}; Total Period {self._given_tenor*12}")
 
-# testA=TotalPeriod(30)
-# print(testA)
-# print(testA.given_tenor,type(testA.given_tenor))
-# print(testA.total_period,type(testA.total_period))
-# assert testA.total_period == 360

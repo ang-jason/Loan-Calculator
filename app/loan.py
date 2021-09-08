@@ -53,12 +53,3 @@ class Loan:
         # print(f"Tenor (Years) : {self._tenor}")
         return display_txt
 
-# T_LOANAMOUNT=440248
-# T_RATE=1.39
-# T_TENOR=30
-
-# loan= Loan(T_LOANAMOUNT,T_RATE,T_TENOR)
-# print(loan.loan_amount,type(loan.loan_amount,))
-# print(loan.interest_rate)
-# print(loan.tenor)
-# loan.tell_details()

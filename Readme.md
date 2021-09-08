@@ -168,7 +168,6 @@ summary = AnalyseSchedule(x)
 # returns total payments, principal, interest of the entire loan
 total_payment, total_principal, total_interest = summary.total_ppi()
 
-
 # this function is analysis of how much interst vs the principal amount
 # returns ratio in percentage
 ratio = summary.interest_to_principal()
@@ -177,15 +176,14 @@ ratio = summary.interest_to_principal()
 # returns ratio in percentage
 ratio = summary.payment_to_loan()
 
-
 # this function is to return specific row (period_row) of the dataframe's schedule
 # input based on months less 1 due to starting 0.
 # e.g Year 2 = 2*12 = 24 -1 = 23th row
 year2_row = summary.show_schedule_row(2*12-1)
 
-
 # this function to return the quick view of monthly payment and the number of times the payments to be made
 mthly_payments, mthly_period = summary.show_payments_brief()
+
 
 # this function is to analytical table top summary of the loan
 # returns the format should be as shown below (dictionary type)
@@ -201,7 +199,6 @@ mthly_payments, mthly_period = summary.show_payments_brief()
 # Principal Balance after Year 3: XXX
 # Principal Balance after Year 5: XXX
 quick_summary = summary.loan_tabletop_brief()
-
 
 # to return individual colums of list of yearly rows to pipe into chartjs
 # provide graphical analytics using chartjs by pulling each data columns set
